@@ -1,0 +1,137 @@
+﻿@using Domain.Entityes
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Головна";
+}
+<style>
+    .field-validation-error {
+        color: #ff0000;
+    }
+
+    .field-validation-valid {
+        display: none;
+    }
+
+    .input-validation-error {
+        border: 1px solid #ff0000;
+        background-color: #fee;
+    }
+
+    .validation-summary-errors {
+        font-weight: bold;
+        color: #ff0000;
+    }
+
+    .validation-summary-valid {
+        display: none;
+    }
+</style>
+
+<main class="catalog">
+    @*метод генирирующий слайдер - разметка (Slider) находиться в папке Houme*@
+    @Html.Action("Slider", "Home")
+    <div class="catalog_product">
+        @{
+            int classProduct = 1;
+            foreach (var i in Model)
+            {
+                <figure>
+                    <img src="~/PhotoForDB/@i.Photo" class=@($"i{classProduct}")>
+                    <figcaption>
+                        <h3>@i.Name</h3>
+                        <h4>@i.Price грн</h4>
+                    </figcaption>
+                </figure>
+                <div id="modal_form" class="@($"m{classProduct}")">
+                    <span id="modal_close">X</span>
+                    @Html.Partial("PartialSelling", i)
+                </div>
+                <div id="overlay"></div>
+                classProduct++;
+            }
+        }
+
+    </div>
+        @Html.Action("BasketOnView", "Basket")
+
+    <section class="smth">
+        <div class="smth_table">
+            <h4>Таблица розмеров</h4>
+            <table class="size_table">
+                <thead>
+                <tr>
+                    <th>размер EURO </th>
+                    <th style="text-align: center"> S</th>
+                    <th style="text-align: center"> M</th>
+                    <th style="text-align: center"> L</th>
+                    <th style="text-align: center"> XL</th>
+                    <th style="text-align: center"> XXL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">размер RUS</th>
+                    <td>40-42</td>
+                    <td>44-46</td>
+                    <td>48-50</td>
+                    <td>52-54</td>
+                    <td>56-58</td>
+                </tr>
+                <tr>
+                    <th scope="row">ширина талии</th>
+                    <td>49</td>
+                    <td>50</td>
+                    <td>55</td>
+                    <td>59</td>
+                    <td>61</td>
+                </tr>
+                <tr>
+                    <th scope="row">довжина</th>
+                    <td>70</td>
+                    <td>72</td>
+                    <td>75</td>
+                    <td>76</td>
+                    <td>78</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="delivery">
+            <h4>
+                Доставка і оплата
+            </h4>
+            <div class="pay">
+                <h5>Оплата</h5>
+                <ul>
+                    <li>Готівкою: Уточніть інформацію про оплату цим способом у майстра</li>
+                    <li>Для України: перевід банківську на карту.</li>
+                </ul>
+                <br>
+            </div>
+            <div class="deliv">
+                <h5>Доставка</h5>
+                <p>Доставка в усі країни:</p>
+                <ul>
+                    <li>Пошта</li>
+                    <li>
+                        Самовивіз / Особиста зустріч
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="contact">
+            <h4>Контакти</h4>
+            <p>
+                <span><img src="~/img/Maps-Location-icon.png" style="width: 30px; height: 30px" alt=""></span>Украина, Киев, вул Шевченка 164
+            </p>
+            <p>
+                <span><img src="~/img/office-phone-icon--25.png" alt="" style="width: 30px; height: 30px"></span>+380 123 330 365
+            </p>
+        </div>
+    </section>
+    <!-----------------------------------------END OF CATALOG PAGE------------------------------------------------>
+</main>
+

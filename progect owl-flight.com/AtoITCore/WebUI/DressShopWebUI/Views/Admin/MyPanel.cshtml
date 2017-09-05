@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Domain.Entityes.Product>
+@using DressShopWebUI.Controllers
+@{
+    ViewBag.Title = "Каталог товарів";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+@if (TempData["messageBad"] != null)
+{
+    <div align="center"><h3 style="color: red">@TempData["message"]</h3></div>
+    <br />
+    <br />
+}
+
+<a href="/Admin/AddProduct" class="btn btn-primary btn-lg">Додати товар</a>
+<label for="dateSelect">Фільтр по даті створення товару</label>
+<select id="dateSelect">
+    <option value="@((int)SortType.None)"></option>
+    <option value="@((int)SortType.Before)">від останніх до перших</option>
+    <option value="@((int)SortType.Later)">від перших до останніх </option>
+</select>
+<label for="nameSearch">Знайти товар за назвою:</label>
+<input id="nameSearch" type="text" /><input id="ButtonSearch" type="button" value="Знайти" class="btn btn-default btn-xs"/>
+<br /><br />
+
+<div id="divProductInAdmin">
+    @Html.Partial("PartialMyPanel", Model)
+</div>
+
+<script>
+    $(document)
+        .ready(function() {
+            $("#dateSelect")
+                .change(function() {
+                    var data = {
+                        sortType: $("#dateSelect option:selected").val()
+                    };
+                    $.ajax({
+                        url: "/Admin/MyPanel",
+                        type: "POST",
+                        data: data,
+                        success: function(data) {
+                            $("#divProductInAdmin").html(data);
+                        }
+                    });
+                });
+        });
+    $(document)
+        .ready(function() {
+            $("#ButtonSearch")
+                .click(function () {
+                    var data = {
+                        sortType: $("#dateSelect option:selected").val(),
+                        searchName: $("#nameSearch").val()
+                    };
+                    $.ajax({
+                        url: "/Admin/MyPanel",
+                        type: "POST",
+                        data: data,
+                        success: function(data) {
+                            $("#divProductInAdmin").html(data);
+                        }
+                    });
+                });
+        });
+</script>

@@ -1,0 +1,132 @@
+﻿@model Domain.Entityes.Product
+
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <table class="table">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Имя товара" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px; margin-right: 20px;", placeholder = "Описание товара" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Discount, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Скидка" } })
+                            @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SpecOffer, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SpecOffer, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px;margin-right: 20px;", placeholder = "Специальное предложение" } })
+                            @Html.ValidationMessageFor(model => model.SpecOffer, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Цена" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input id="Radio1" type="radio" value="Selling" name="Category" data-val-required="Пожалуйста, укажите категорию" data-val="true" /><label style="margin: 5px">ONLINE-гардероб</label>
+                            <br />
+                            <input id="Radio2" type="radio" value="Gallery" name="Category" data-val-required="Пожалуйста, укажите категорию" data-val="true" /><label style="margin: 5px">Галерея</label>
+                            <br />
+                            <input id="Radio3" type="radio" value="Partners" name="Category" data-val-required="Пожалуйста, укажите категорию" data-val="true" /><label style="margin: 5px">Партнерское</label>
+
+                            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div Id="photoId">
+                        @Html.Partial("EditPhoto", Model.Photo)
+                    </div>
+                    <div>
+                        <form id="fileUpload" action="@Url.Action("UploadPhoto")" method="POST" enctype="multipart/form-data">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="button" value="Добавить фото к товару" id="btnFileUpload">
+                                    </td>
+                                    <td>
+                                        <input id="fileInput" type="file" value="Выбрать фото">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <script type="text/javascript">
+                        $(document)
+                            .ready(function () {
+                                $("#btnFileUpload")
+                                    .click(function () {
+                                        var formData = new FormData();
+                                        formData.append("productId", '@Model.ProductId');
+                                        //  debugger;
+                                        var file = document.getElementById("fileInput").files[0];
+                                        if (file == null)
+                                            return false;
+                                        formData.append("fileInput", file);
+                                        //  debugger;
+                                        $.ajax({
+                                            url: "/Admin/UploadPhoto",
+                                            type: "POST",
+                                            data: formData,
+                                            contentType: false,
+                                            processData: false,
+                                            success: function (data) {
+                                                $("#photoId").html(data);
+                                            }
+                                        });
+                                        return true;
+                                    });
+                            })
+
+                    </script>
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить изменения" class="btn btn-default" />
+                <a href="/Admin/MyPanel" style="float: right">
+                    <input id="Button1" type="button" value="Вернуться назад" class="btn btn-default" />
+                </a>
+            </div>
+        </div>
+    </div>
+}

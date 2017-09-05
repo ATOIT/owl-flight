@@ -1,0 +1,118 @@
+﻿@model DressShopWebUI.Models.BasketViewModel
+
+@{
+    ViewBag.Title = "Ваш кошик";
+}
+<style>
+        .field-validation-error {
+        color: #ff0000;
+    }
+
+    .field-validation-valid {
+        display: none;
+    }
+
+    .input-validation-error {
+        border: 1px solid #ff0000;
+        background-color: #fee;
+    }
+
+    .validation-summary-errors {
+        font-weight: bold;
+        color: #ff0000;
+    }
+
+    .validation-summary-valid {
+        display: none;
+    }
+</style>
+<br />
+<br />
+<h2 align="center">@ViewBag.Sorry</h2>
+
+@foreach (var line in Model.Basket.Lines)
+{
+
+    //получаем фото продукта
+    <img title="@line.Product.Name" src="~/PhotoForDB/@line.Product.Photo" height="80" width="75" />
+    <p>Футболка - "@line.Product.Name"</p>
+    <p>Розмір - "@line.Size"</p>
+    <p>
+        <strong>Ціна -</strong> @line.Product.Price.ToString("# грн")
+    </p>
+
+    //кнопка удаления продукта из корзины
+    using (Html.BeginForm("RemoveFromBasket", "Basket"))
+    {
+        @Html.HiddenFor(x => x.ReturnUrl)
+        @Html.Hidden("line", line.GetHashCode())
+        <input class="btn" type="submit" value="Видалити з кошика" style="float: right" />
+    }
+}
+<br />
+<br />
+<br />
+@*суммарная стоимость покупки*@
+@if (Model.Basket.CountItem != 0)
+{
+    <h3>Разом: @Model.Basket.ComputeTotalValue().ToString("# грн")</h3>
+}
+<br />
+<br />
+@*форма для оформления заказа*@
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(x => x.Orders.ClientName, new { htmlAttributes = new { style = "margin: 0px; width: 500px; height: 20px;", placeholder = "Ваше ім'я" } })
+    @Html.ValidationMessageFor(x => x.Orders.ClientName)
+    <br />
+    <br />
+    @Html.EditorFor(x => x.Orders.Email, new { htmlAttributes = new { style = "margin: 0px; width: 500px; height: 20px;", placeholder = "E-mail" } })
+    @Html.ValidationMessageFor(x => x.Orders.Email)
+    <br />
+    <br />
+    @Html.EditorFor(x => x.Orders.Phone, new { htmlAttributes = new { style = "margin: 0px; width: 500px; height: 20px;", placeholder = "Номер телефону" } })
+    @Html.ValidationMessageFor(x => x.Orders.Phone)
+    <br />
+    <br />
+    <h4>Спосіб оплати</h4>
+    <input id="Radio1" type="radio" value="Готівкою" name="Orders.Payment" data-val-required="Ви не обрали спосіб оплати" data-val="true" /><label style="margin: 5px">Готівкою, під час самовивозу</label>
+    <br />
+    <input id="Radio2" type="radio" value="Безготівковий розрахунок" name="Orders.Payment" data-val-required="Ви не обрали спосіб оплати" data-val="true" /><label style="margin: 5px">Безготівковий розрахунок</label>
+    @Html.ValidationMessageFor(x => x.Orders.Payment)
+    <br />
+    <br />
+    <h4>Спосіб доставки</h4>
+    <input id="Radio4" type="radio" value="Самовивіз" name="Orders.Delivery" data-val-required="Ви не обрали спосіб доставки" data-val="true" /><label style="margin: 5px">Самовивіз</label>
+    <br />
+    <input id="Radio5" type="radio" value="Новою поштою" name="Orders.Delivery" data-val-required="Ви не обрали спосіб доставки" data-val="true" /><label style="margin: 5px">Новою поштою</label>
+    <br />
+    <input id="Radio5" type="radio" value="за кордон" name="Orders.Delivery" data-val-required="Ви не обрали спосіб доставки" data-val="true" /><label style="margin: 5px">Доставка за кордон</label>
+    @Html.ValidationMessageFor(x => x.Orders.Delivery)
+    <br />
+    <br />
+    @Html.EditorFor(x => x.Orders.Address, new { htmlAttributes = new { style = "margin: 0px; width: 500px; height: 80px;", placeholder = "Адреса" } })
+    @Html.ValidationMessageFor(x => x.Orders.Address)
+    <br />
+    <br />
+    @Html.EditorFor(x => x.Orders.Сomment, new { htmlAttributes = new { style = "margin: 0px; width: 500px; height: 80px;", placeholder = "Коментарій" } })
+    @Html.ValidationMessageFor(x => x.Orders.Сomment)
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    //кнопка продолжить покупки
+    <div>
+        <a href="@Model.ReturnUrl">
+            <input id="Button1" type="button" value="Продовжити покупки" style="float: right" />
+        </a>
+    </div>
+    //кнопка оформить заказ
+    <input class="btn" type="submit" value="Оформити замовлення" />
+}
+
+<br />
+<br />
+<br />
+
+

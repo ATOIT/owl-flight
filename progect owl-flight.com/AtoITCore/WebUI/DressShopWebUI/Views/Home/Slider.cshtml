@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Domain.Entityes.Slider>
+<section class="slider">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @{
+                int first = 0;
+                foreach (var i in Model)
+                {
+                    if (first == 0)
+                    {
+                        <li data-target="#myCarourel" data-slide-to="@i.Number" class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@i.Number"></li>
+                    }
+                    first++;
+                }
+            }
+        </ol>
+        <div class="carousel-inner">
+            @{
+                int firstSlide = 0;
+                foreach (var i in Model)
+                {
+                    if (firstSlide == 0)
+                    {
+                        <div class="item active">
+                            <img src="~/PhotoForDB/@i.SlidePhoto" style="width: 43%; height: 450px" data-src=" " class="itemImg" class="i6">
+                            <div class="carousel-caption">
+                                <br><br><br><br><br><br><br><br><br><br><br>
+                                <h2>
+                                    @i.Name
+                                </h2>
+                                <p>
+                                    @i.SlideDescription
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <img src="~/PhotoForDB/@i.SlidePhoto" style="width: 43%; height: 450px" data-src="">
+                            <div class="carousel-caption">
+                                <br><br><br><br><br><br><br><br><br><br><br>
+                                <h2>
+                                    @i.Name
+                                </h2>
+                                <p>
+                                    @i.SlideDescription
+                                </p>
+                                
+                            </div>
+                        </div>
+                    }
+                    firstSlide++;
+                }
+            }
+        </div>
+        <!--------------------------------------- CONTROL BUTTONS-------------------------------------------->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</section>
+
+

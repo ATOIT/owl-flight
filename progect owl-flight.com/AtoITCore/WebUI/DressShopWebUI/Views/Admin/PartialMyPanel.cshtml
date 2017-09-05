@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Domain.Entityes.Product>
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" align="center"><h3>@TempData["message"]</h3></div>
+}
+
+<table class="table" style="background-color: lightgrey">
+    <tr>
+        <th class="text-center">
+            Фото
+        </th>
+        <th class="text-center">
+            Назва
+        </th>
+        <th class="text-center">
+            Ціна
+        </th>
+        <th class="text-center">
+            Склад
+        </th>
+        <th class="text-center">
+            Щільність
+        </th>
+        <th class="text-center">
+            Країна-виробник
+        </th>
+        <th class="text-center">
+            Опис
+        </th>
+        <th class="text-center">
+            Стиль
+        </th>
+        <th class="text-center">
+            S
+        </th>
+        <th class="text-center">
+            M
+        </th>
+        <th class="text-center">
+            L
+        </th>
+        <th class="text-center">
+            XL
+        </th>
+        <th class="text-center">
+            XXL
+        </th>
+        <th class="text-center">
+            3XL
+        </th>
+        <th class="text-center">
+            4XL
+        </th>
+        <th class="text-center">
+            Дії над товаром
+        </th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>
+              <img src="~/PhotoForDB/@i.Photo" width="60" height="70" />
+            </td>
+            <td>
+                <i>@i.Name</i>
+            </td>
+            <td>
+                @(i.Price) грн.
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => i.Composition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Density)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Producer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Style)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.S)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.M)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.L)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Xl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Xxl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Xl3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Xl4)
+            </td>
+
+            <td class="text-center">
+                @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Get))
+                {
+                    @Html.Hidden("ProductId", i.ProductId)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Редагувати" />
+                }
+            </td>
+            <td class="text-center">
+                @using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+                {
+                    @Html.Hidden("ProductId", i.ProductId)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Видалити" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>

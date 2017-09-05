@@ -1,0 +1,102 @@
+﻿@model ICollection<Domain.Entityes.Photo>
+
+@if (!Model.Count.Equals(0))
+{
+   <h3 align="center" style="color:  red">@ViewBag.Error</h3>
+<table class="table">
+    <tr>
+        <th class="text-center">
+            Фото
+        </th>
+        <th class="text-center">
+            Приоритет
+        </th>
+        <th class="text-center">
+            Выбор приоритета
+        </th>
+        <th class="text-center">
+            Удаление
+        </th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/PhotoForDB/@i.PhotoUrl" width="60" height="70" />
+            </td>
+            <td>
+                @if (i.Priority.
+                    Equals(true))
+                {
+
+                    <i>Основное фото</i>
+                }
+                @if (i.Priority.
+                    Equals(false))
+                {
+
+                    <i>Дополнительное фото</i>
+                }
+            </td>
+            <td class="text-center">
+                <input type="button" id="@(i.PhotoId+"ButtonEdit")"
+                       class="btn btn-default btn-xs"
+                       value="Установить как основное фото" />
+                <script>
+                    $(document)
+                        .ready(function () {
+                            $("#@(i.PhotoId+"ButtonEdit")")
+                                .click(function () {
+                                    var prior = "@i.Priority";
+                                    if (prior === "True")
+                                        return false;
+                                    var data = {
+                                        idProduct: ('@i.Product.ProductId'),
+                                        id: ('@i.PhotoId')
+                                    };
+                                    $.ajax({
+                                        url: "/Admin/PriorityСhangesPhoto",
+                                        type: "POST",
+                                        data: data,
+                                        success: function (data) {
+                                            $("#photoId").html(data);
+                                        }
+                                    });
+                                    return true;
+                                });
+                        });
+                </script>
+            </td>
+            <td class="text-center">
+                <input type="button" id="@(i.PhotoId+"ButtonDelete")"
+                       class="btn btn-default btn-xs"
+                       value="Удалить фото" />
+                <script>
+                    $(document)
+                        .ready(function () {
+
+                            $("#@(i.PhotoId+ "ButtonDelete")")
+                                .click(function () {
+                                    var data = {
+                                        idProduct: ('@i.Product.ProductId'),
+                                        id: ('@i.PhotoId')
+                                    };
+                                    $.ajax({
+                                        url: "/Admin/DeletePhoto",
+                                        type: "POST",
+                                        data: data,
+                                        success: function (data) {
+                                            $("#photoId").html(data);
+                                        }
+                                    });
+                                });
+                        });
+                </script>
+            </td>
+        </tr>
+    }
+</table>
+
+}
+

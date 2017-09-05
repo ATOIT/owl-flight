@@ -1,0 +1,160 @@
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\csc.exe
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\System.Collections.Immutable.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\System.Reflection.Metadata.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\vbc.exe
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\VBCSCompiler.exe
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\VBCSCompiler.exe.config
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.dll.config
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.pdb
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Domain.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.SqlServer.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.Web.Infrastructure.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Helpers.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Mvc.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Razor.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Deployment.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Razor.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Domain.pdb
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.SqlServer.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Razor.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Deployment.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Razor.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Helpers.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Mvc.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Razor.resources.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.resources.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Helpers.resources.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Mvc.resources.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.csprojResolveAssemblyReference.cache
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.pdb
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\csc.exe
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\System.Collections.Immutable.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\System.Reflection.Metadata.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\vbc.exe
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\VBCSCompiler.exe
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\VBCSCompiler.exe.config
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.dll.config
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.pdb
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Domain.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.SqlServer.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.Web.Infrastructure.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Helpers.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Mvc.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Razor.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Deployment.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Razor.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Domain.pdb
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.SqlServer.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Razor.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Deployment.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Razor.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Helpers.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Mvc.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Razor.resources.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.resources.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Helpers.resources.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Mvc.resources.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.csprojResolveAssemblyReference.cache
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.pdb
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Common.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Mvc.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\WebActivatorEx.dll
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Common.xml
+D:\ATOIT\Тест\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Mvc.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Common.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Mvc.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\WebActivatorEx.dll
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Common.xml
+D:\ATOIT\PLIT\AtoITCore\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Mvc.xml
+D:\ATOIT\PLIT\owl-flight.com\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.csprojResolveAssemblyReference.cache
+D:\ATOIT\PLIT\owl-flight.com\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.dll
+D:\ATOIT\PLIT\owl-flight.com\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.pdb
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.csprojResolveAssemblyReference.cache
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\csc.exe
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\System.Collections.Immutable.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\System.Reflection.Metadata.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\vbc.exe
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\VBCSCompiler.exe
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\roslyn\VBCSCompiler.exe.config
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.dll.config
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\DressShopWebUI.pdb
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Domain.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.SqlServer.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.Web.Infrastructure.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Common.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Mvc.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Helpers.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Mvc.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Razor.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Deployment.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Razor.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\WebActivatorEx.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Domain.pdb
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Domain.dll.config
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\EntityFramework.SqlServer.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Common.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\Ninject.Web.Mvc.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Razor.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Deployment.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Webpages.Razor.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Helpers.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\System.Web.Mvc.xml
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Razor.resources.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.resources.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Helpers.resources.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\bin\ru\System.Web.Mvc.resources.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.dll
+D:\ATOIT\owl-flight\progect owl-flight.com\AtoITCore\WebUI\DressShopWebUI\obj\Debug\DressShopWebUI.pdb

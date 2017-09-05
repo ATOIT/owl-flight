@@ -1,0 +1,15 @@
+﻿@model Domain.Entityes.Basket
+
+<div class="up" style=" margin: 5px">
+    <img src="~/img/top.png" style="width: 50px; height: 50px">
+</div>
+<div  style="margin-left: 50px;">
+    @if (Model.CountItem != 0)
+    {
+        <p align="right" style="padding: 10px; margin-bottom: -20px">@Model.CountItem</p>
+        <a href="@Url.Action("Index", new {returnUrl = Request.Url?.PathAndQuery})" align="right" class="basketLink">
+            <img src="~/img/basketpic.png" alt=""  >
+        </a>
+    }
+</div>
+    

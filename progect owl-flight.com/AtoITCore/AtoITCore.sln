@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F580F7E5-3E02-4A4D-9F58-732820AB3428}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebUI", "WebUI", "{06B70150-E53B-4980-944E-C2C8EF33D2D1}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Documentation.txt = ..\..\Documentation.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain\Domain.csproj", "{9A68FC4E-8469-41AF-86D5-A79DD2F2918A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DressShopWebUI", "WebUI\DressShopWebUI\DressShopWebUI.csproj", "{3A18855D-49BA-4364-B0A3-17CC949156B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A68FC4E-8469-41AF-86D5-A79DD2F2918A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A68FC4E-8469-41AF-86D5-A79DD2F2918A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A68FC4E-8469-41AF-86D5-A79DD2F2918A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A68FC4E-8469-41AF-86D5-A79DD2F2918A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A18855D-49BA-4364-B0A3-17CC949156B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A18855D-49BA-4364-B0A3-17CC949156B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A18855D-49BA-4364-B0A3-17CC949156B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A18855D-49BA-4364-B0A3-17CC949156B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A68FC4E-8469-41AF-86D5-A79DD2F2918A} = {F580F7E5-3E02-4A4D-9F58-732820AB3428}
+		{3A18855D-49BA-4364-B0A3-17CC949156B4} = {06B70150-E53B-4980-944E-C2C8EF33D2D1}
+	EndGlobalSection
+EndGlobal

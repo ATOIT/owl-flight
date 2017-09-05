@@ -1,0 +1,74 @@
+﻿@model Domain.Entityes.Product
+<img src="~/PhotoForDB/@Model.Photo" alt="">
+<div class="modal_about">
+    <h2>@Model.Name</h2>
+    <h3>@Model.Price грн</h3><br>
+    @if (Model.Composition != null)
+    {
+        <p>Склад: @Model.Composition</p>
+    }
+    @if (Model.Density != null)
+    {
+        <p>Щільність: @Model.Density</p>
+    }
+    @if (Model.Producer != null)
+    {
+        <p>Країна-виробник: @Model.Producer</p>
+    }
+    @if (Model.Description != null)
+    {
+        <p>Опис: @Model.Description</p>
+    }
+    @if (Model.Style != null)
+    {
+        <p>Стиль: @Model.Style</p>
+    }
+</div>
+<br>
+<form id="add" method="post" novalidate="novalidate">
+</form>
+@using (Html.BeginForm("AddToBasket", "Basket"))
+{ @Html.AntiForgeryToken()
+
+    @Html.LabelFor(model => model.SelectedSize)
+
+    if (Model.S)
+    {
+        <input name="SelectedSize" id="Radio1" type="radio" value="S" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">S</label>
+    }
+    if (Model.M)
+    {
+        <input name="SelectedSize" id="Radio2" type="radio" value="M" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">M</label>
+    }
+    if (Model.L)
+    {
+        <input name="SelectedSize" id="Radio3" type="radio" value="L" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">L</label>
+    }
+    if (Model.Xl)
+    {
+        <input name="SelectedSize" id="Radio4" type="radio" value="XL" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">XL</label>
+    }
+    if (Model.Xxl)
+    {
+        <input name="SelectedSize" id="Radio5" type="radio" value="XXL" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">XXL</label>
+    }
+    if (Model.Xl3)
+    {
+        <input name="SelectedSize" id="Radio6" type="radio" value="3XL" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">3XL</label>
+    }
+    if (Model.Xl4)
+    {
+        <input name="SelectedSize" id="Radio7" type="radio" value="4XL" data-val-required="будь ласка, оберіть розмір" data-val="true"><label style="margin: 5px">4XL</label>
+    }
+    @Html.ValidationMessageFor(model => model.SelectedSize, "", new { @class = "text-danger" })
+    @Html.HiddenFor(x => x.SelectedSize)
+    @Html.HiddenFor(x => x.ProductId)
+    @Html.Hidden("returnUrl", Request.Url?.PathAndQuery)
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" name="action" class="btn btn-default" value="addAndGo">Швидкий заказ</button>
+            <button type="submit" name="action" class="btn btn-default" value="add">Додати в кошик</button>
+        </div>
+    </div>
+}

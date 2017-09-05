@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Domain.Entityes.Reviews>
+<table class="table" style="background-color: lightgrey">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.ClientName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.ClientFeedback)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Advantages)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.LackOf)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.DateFeedback)
+        </th>
+        <th class="text-center">
+            Действия над отзывом
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientFeedback)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Advantages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LackOf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFeedback)
+            </td>
+            <td class="text-center">
+                @using (Html.BeginForm("EditReview", "Admin", FormMethod.Get))
+                {
+                    @Html.Hidden("ReviewId", item.ReviewId)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Редактировать" />
+                }
+            </td>
+            <td class="text-center">
+                @using (Html.BeginForm("DeleteReviews", "Admin", FormMethod.Get))
+                {
+                    @Html.Hidden("ReviewId", item.ReviewId)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Удалить" />
+                }
+            </td>
+
+        </tr>
+    }
+
+</table>
+@if (!Model.Any())
+{
+    <h2 align="center" style="color: blue">На сайте, пока что нет отзывов.</h2>
+}

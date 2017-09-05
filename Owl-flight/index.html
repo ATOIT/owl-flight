@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owl-Flight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="libs/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="libs/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+     <style>
+    .nav>li>a:focus, .nav>li>a:hover{
+    background-color:  rgba(0, 0, 0, 0);
+
+    }
+    </style>
+     
+</head>
+<body>
+   
+<!--  HEADER   -->
+    <header>
+<!--    BRAND & LOGO-->
+     <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a><p class="logo"> OWL FLIGHT</p>
+<!--       NAVIGATION PANEL   -->
+       
+        <nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+  
+   
+    </div>
+    <div class="navbar" id="bs-example-navbar-collapse" id="menu">
+<!--      NAV MENU-->
+      <ul class="nav navbar-nav" style="color:black" >
+          <li class="catalog_menu"><a href="#" style="color:black" >Главная</a></li>
+        <li class="about_us_menu"><a href="#" style="color:black" >О нас</a></li>
+        <li><a href="https://www.facebook.com/Flight-OWL-865530733589259" target="_blank"><img src="img/square-facebook-128.png" alt="" class="icon_menu"></a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    </header>
+   <main class="catalog">
+       <section class="slider">
+         
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+           <ol class="carousel-indicators">
+              <li data-target="#myCarourel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>
+              <li data-target="#myCarousel" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+  <div class="item active"> <img src="img/indianblack.png" style="width:43%; height:450px" data-src=" " class="itemImg" class="i6">
+      <div class="carousel-caption">
+       <br><br><br><br><br><br><br><br><br><br><br>
+        <h2> Склад: 100% бавовна </h2>
+        <p>Щільність: 140-150 г/м2. <br>
+Розміри: S, M, L, XL, XXL, 3XL, 4XL <br>
+Країна-виробник: Україна. <br>
+Опис:футболка унісекс 100% бавовна <br>
+Стиль: класичний.</p>
+      </div>
+    
+  </div>
+  <div class="item"> <img src="img/three.png" style="width:43%; height:450px" data-src="" >
+      <div class="carousel-caption">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <h2>
+        АКЦИЯ!!!
+        </h2>
+        <p>При покупки 3 шт : скидка-купон 10 евро на трудоустройство Польша и Чехия от наших партнеров</p>
+      </div>
+  </div>
+  <div class="item"> <img src="img/photo1.jpg" style="width:45%; height:450px" data-src="" >
+    <div class="container">
+      <div class="carousel-caption">
+       <br><br><br><br><br><br><br><br><br><br><br>
+        <h2>
+        Фестиваль "Україна і Ізраїль разом"
+        </h2>
+        <p> Фестиваль "Україна і Ізраїль разом",  на фото посол України</p>
+      </div>
+    </div>
+  </div>
+  <div class="item"> <img src="img/globewhite.png" style="width:45%; height:450px" data-src="" class="i14" >
+    <div class="container">
+      <div class="carousel-caption">
+       <br><br><br><br><br><br><br><br><br><br><br>
+        <h2>
+       Склад: 100% бавовна 
+        </h2>
+        <p>
+           Щільність: 140-150 г/м2. <br>
+Розміри: S, M, L, XL, XXL, 3XL, 4XL <br>
+Країна-виробник: Україна. <br>
+Опис:футболка унісекс 100% бавовна <br>
+Стиль: класичний. 
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="item"> <img src="img/three.png" style="width:45%; height:450px" data-src="" >
+    <div class="container">
+      <div class="carousel-caption">
+       <br><br><br><br><br><br><br><br><br><br><br>
+        <h2>
+         АКЦИЯ!!!
+        </h2>
+        <p>При покупки 3 шт : скидка-купон 10 евро на трудоустройство Польша и Чехия от наших партнеров</p>
+      </div>
+    </div>
+  </div>
+  <div class="item"> <img src="img/applered.png" style="width:45%; height:450px" data-src="" class='i10'>
+    <div class="container">
+      <div class="carousel-caption">
+       <br><br><br><br><br><br><br><br><br><br><br>
+        <h2>
+        Долучайся! <br>Купуй! <br> Допомагай!
+        </h2>
+        <p>Товар, який ви тримаєте в руках, створений зусиллями ГО ветеранів АТО та волонтерів. Тільки при вашій підтримці ми зможемо більше!</p>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+<!--     CONTROL BUTTONS-->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+              
+              </div>
+       </section>
+<!--   CATALOG OF WARE -->
+   <div class="catalog_product">           
+           <figure> <img src="img/appleblack.png" class="i1">
+                <figcaption>
+                    <h3>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+          </figure>
+           <div id="modal_form" class="m1">
+	        <span id="modal_close">X</span>
+          <img src="img/appleblack.png" alt="">
+          <div class="modal_about">
+              <h2>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+          
+          <figure> <img src="img/owlwhite.png"  class="i2">
+                <figcaption>
+                    <h3>OWL FLIGHT</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+          </figure>
+           <div id="modal_form" class="m2">
+	        <span id="modal_close" class="c2">X</span>
+          <img src="img/owlwhite.png" alt="">
+          <div class="modal_about">
+              <h2>OWL FLIGHT</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+          <figure> <img src="img/globered.png" class="i3" >
+                <figcaption>
+                    <h3>ГЛОБУС УКРАЇНИ.</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                  
+          </figure>
+           <div id="modal_form" class="m3">
+	        <span id="modal_close">X</span>
+          <img src="img/globered.png" alt="">
+          <div class="modal_about">
+              <h2>ГЛОБУС УКРАЇНИ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+          <figure> <img src="img/indianblue.png" class="i4" >
+                <figcaption>
+                    <h3>ВОЖДЬ ІРОКЕЗІВ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+          </figure>
+           <div id="modal_form" class="m4" >
+	        <span id="modal_close">X</span>
+          <img src="img/indianblue.png" alt="">
+          <div class="modal_about">
+              <h2>ВОЖДЬ ІРОКЕЗІВ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+          <figure> <img src="img/owlblue.png"class="i5" >
+                <figcaption>
+                    <h3>OWL FLIGHT</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+
+          </figure>
+           <div id="modal_form" class="m5">
+	        <span id="modal_close">X</span>
+          <img src="img/owlblue.png" alt="">
+          <div class="modal_about">
+              <h2>OWL FLIGHT</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/indianblack.png" class="i6" >
+                <figcaption>
+                    <h3>ВОЖДЬ ІРОКЕЗІВ.</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                    
+          </figure>
+           <div id="modal_form" class="m6">
+	        <span id="modal_close">X</span>
+          <img src="img/indianblack.png" alt="">
+          <div class="modal_about">
+              <h2>ВОЖДЬ ІРОКЕЗІВ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/applewhite.png" class="i7" >
+                <figcaption>
+                    <h3>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                   
+          </figure>
+           <div id="modal_form" class="m7">
+	        <span id="modal_close">X</span>
+          <img src="img/applewhite.png" alt="">
+          <div class="modal_about">
+              <h2>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/owlred.png"class="i8" >
+                <figcaption>
+                    <h3>OWL FLIGHT</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                    
+          </figure>
+           <div id="modal_form" class="m8">
+	        <span id="modal_close">X</span>
+          <img src="img/owlred.png" alt="">
+          <div class="modal_about">
+              <h2>OWL FLIGHT</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/globeblack.png" class="i9" >
+                <figcaption>
+                    <h3>ГЛОБУС УКРАЇНИ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                   
+          </figure>
+ <div id="modal_form" class="m9">
+	        <span id="modal_close">X</span>
+          <img src="img/globeblack.png" alt="">
+          <div class="modal_about">
+              <h2>ГЛОБУС УКРАЇНИ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/applered.png" class="i10">
+                <figcaption>
+                    <h3>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                    
+          </figure>
+           <div id="modal_form" class="m10">
+	        <span id="modal_close">X</span>
+          <img src="img/applered.png" alt="">
+          <div class="modal_about">
+              <h2>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center"> Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/indianwhite.png"class="i11" >
+                <figcaption>
+                    <h3>ВОЖДЬ ІРОКЕЗІВ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                   
+          </figure>
+           <div id="modal_form" class="m11">
+	        <span id="modal_close">X</span>
+          <img src="img/indianwhite.png" alt="">
+          <div class="modal_about">
+              <h2>ВОЖДЬ ІРОКЕЗІВ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/appleblue.png" class="i12" >
+                <figcaption>
+                    <h3>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                    
+          </figure>
+             <div id="modal_form" class="m12">
+	        <span id="modal_close">X</span>
+          <img src="img/appleblue.png" alt="">
+          <div class="modal_about">
+              <h2>НЕ З'ЇМ, ТАК ПОНАДКУШУЮ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center" >Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+             <figure> <img src="img/indianred.png" class="i13" >
+                <figcaption>
+                    <h3>ВОЖДЬ ІРОКЕЗІВ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                  
+          </figure>
+           <div id="modal_form" class="m13">
+	        <span id="modal_close">X</span>
+          <img src="img/indianred.png" alt="">
+          <div class="modal_about">
+              <h2>ВОЖДЬ ІРОКЕЗІВ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+           <figure> <img src="img/globewhite.png" class="i14">
+                <figcaption>
+                    <h3>ГЛОБУС УКРАЇНИ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                   
+          </figure>
+           <div id="modal_form" class="m14">
+	        <span id="modal_close">X</span>
+          <img src="img/globewhite.png" alt="">
+          <div class="modal_about">
+              <h2>ГЛОБУС УКРАЇНИ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+        
+          
+          
+           <figure> <img src="img/owlblack.png" class="i15">
+                <figcaption>
+                    <h3>OWL FLIGHT</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                    
+          </figure>
+           <div id="modal_form" class="m15">
+	        <span id="modal_close">X</span>
+          <img src="img/owlblack.png" alt="">
+          <div class="modal_about">
+              <h2>OWL FLIGHT</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+          
+           <figure> <img src="img/indianblue.png"class="i16" >
+                <figcaption>
+                    <h3>ВОЖДЬ ІРОКЕЗІВ</h3>
+                    <h4>158.00 грн</h4> </figcaption>
+                   
+          </figure>
+           <div id="modal_form" class="m16">
+	        <span id="modal_close">X</span>
+          <img src="img/indianblue.png" alt="">
+          <div class="modal_about">
+              <h2>ВОЖДЬ ІРОКЕЗІВ</h2>
+              <h3>158.00 грн</h3><br>
+              <p>Склад: 100% бавовна</p>
+              <p>Щільність: 140-150 г/м2.</p>
+              <p>Розміри: S, M, L, XL, XXL, 3XL, 4XL</p>
+              <p>Країна-виробник: Україна.</p>
+             <p>Опис:футболка унісекс 100% бавовна</p>
+            <p>Стиль: класичний.</p>
+
+          </div><br><br>
+          <h4 style="text-align:center">Замовити  за тел. 096 818 41 38.</h4>
+           </div>
+     <div id="overlay"></div>
+         
+          
+           </div>
+           
+<!--           FIXED BASKET-->
+           <div class="up">
+               <span><img src="img/top.png" style="width:50px; height:50px"></span>
+           </div>
+           
+
+
+        
+        
+     
+     
+      <section class="smth">
+   
+   <div class="smth_table">
+       <h4>Таблица розмеров</h4>
+        <table class="size_table">
+  <thead>
+    <tr>
+      <th>размер  EURO </th>
+      <th style="text-align:center"> S</th>
+      <th style="text-align:center"> M</th>
+      <th style="text-align:center"> L</th>
+      <th style="text-align:center"> XL</th>
+      <th style="text-align:center"> XXL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">размер  RUS</th>
+      <td>40-42</td>
+      <td>44-46</td>
+      <td>48-50</td>
+      <td>52-54</td>
+      <td>56-58</td>
+    </tr>
+    <tr>
+      <th scope="row">ширина талии</th>
+      <td>49</td>
+      <td>50</td>
+      <td>55</td>
+      <td>59</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th scope="row">довжина</th>
+      <td>70</td>
+      <td>72</td>
+      <td>75</td>
+      <td>76</td>
+      <td>78</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+   
+   <div class="delivery">
+       <h4>
+Доставка і оплата</h4>
+       <div class="pay">
+       <h5>Оплата</h5>
+       <ul>
+           <li>Готівкою:  Уточніть інформацію про оплату цим способом у майстра</li>
+           <li>Для України: перевід банківську на карту.</li>
+       </ul>
+       <br>
+       </div>
+       <div class="deliv">
+           <h5>Доставка</h5>
+           <p>Доставка в усі країни:</p>
+           <ul>
+               <li>Пошта</li>
+               <li>
+Самовивіз / Особиста зустріч</li>
+           </ul>
+       </div>
+   </div>
+   
+       
+   <div class="contact">
+           <h4>Контакти</h4>
+           <p><span><img src="img/Maps-Location-icon.png" style="width:30px; height:30px" alt=""></span>Украина, Киев, вул Шевченка 164</p>
+           <p><span><img src="img/office-phone-icon--25.png" alt="" style="width:30px; height:30px"></span>+380 123 330 365</p>
+       </div>
+    </section>
+
+    
+<!--     END OF CATALOG PAGE-->
+   </main>
+   
+   <!--     START OF ABOUT US PAGE-->
+        <main class="about_us">
+            <h2>Cтартап ветеранів війни.</h2> 
+            
+        <h3>Долучайся!</h3> <h3> Купуй!</h3><h3>  Допомагай!</h3>
+        
+        <h4>Товар, який ви тримаєте в руках, створений зусиллями ГО ветеранів АТО та волонтерів. <br> Тільки при вашій підтримці ми зможемо більше!
+            </h4>
+            <br><br>
+            <div class="about_us_contact">
+                <h3>Контакти</h3><br>
+           <span><img src="img/Maps-Location-icon.png" alt=""></span>Украина, Киев, вул Шевченка 164
+           <span>   <img src="img/office-phone-icon--25.png" alt=""></span>+380 123 330 365
+            </div>
+        </main>
+   
+<!--   FOOTER-->
+    <footer>
+       <h5>© ATOIT 2017</h5>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="libs/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+</body>
+</html>
