@@ -39,14 +39,14 @@
     </style>
 <br/>
     <br />
-            <h2 align="center">Вход в панель Администратора сайта</h2>
+            <h2 align="center">Вхід в панель адміністратора сайту</h2>
     <br />
         <div class="" align="center">
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary()
                 <div class="">
-                    <label>Логин  :</label>
+                    <label>Логін  :</label>
                     @Html.TextBoxFor(m => m.Name, new { @class = "" })
                     <br />
                     @Html.ValidationMessageFor(x => x.Name)
@@ -60,7 +60,7 @@
                 </div>
 
                 <br />
-                    <input type="submit" value="Воход" class="btn" />
+                    <input type="submit" value="Вхід" class="btn" />
                 
             }
         </div>

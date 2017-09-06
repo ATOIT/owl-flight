@@ -37,7 +37,8 @@ namespace Domain.Concrete
                         Style = product.Style,
                         Producer = product.Producer,
                         DateCreate = Now,
-                        Photo = product.Photo
+                        Photo = product.Photo,
+                        SelectedSize = "new"
                     });
                     _context.SaveChanges();
                 }

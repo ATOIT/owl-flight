@@ -1,110 +1,144 @@
-﻿@*@model Domain.Entityes.Product
+﻿@using System
+@using Domain.Entityes
+@model Domain.Entityes.Product
 
 @{
-    ViewBag.Title = "AddProduct";
+    ViewBag.Title = "Новий товар";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
-
+    @Html.Hidden("SelectedSize", "new")
+    @Html.Hidden("Photo", "new")
     <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      
         <table class="table">
+            <tr>
+                <td>
+                    <h4 align="center">Основні параметри</h4 >
+                    </td>
+                
+                <td>
+                    <h4 align="center">Розміри</h4>
+                </td>
+                <td>
+                    <h4 align="center">Фото</h4>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <div class="form-group">
                         @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Имя товара" } })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Назва товару" } })
                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px; margin-right: 20px;", placeholder = "Описание товара" } })
-                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Discount, new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Скидка" } })
-                            @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.SpecOffer, new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.SpecOffer, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px;margin-right: 20px;", placeholder = "Специальное предложение" } })
-                            @Html.ValidationMessageFor(model => model.SpecOffer, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Цена" } })
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Ціна товару" } })
                             @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
+                       @Html.LabelFor(model => model.Composition, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            <input id="Radio1" type="radio" value="Selling" name="Category" data-val-required="Пожалуйста, укажите категорию" data-val="true" /><label style="margin: 5px">ONLINE-гардероб</label>
-                            <br />
-                            <input id="Radio2" type="radio" value="Gallery" name="Category" data-val-required="Пожалуйста, укажите категорию" data-val="true" /><label style="margin: 5px">Галерея</label>
-                            <br />
-                            <input id="Radio3" type="radio" value="Partners" name="Category" data-val-required="Пожалуйста, укажите категорию" data-val="true" /><label style="margin: 5px">Партнерское</label>
+                            @Html.EditorFor(model => model.Composition, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px; margin-right: 20px;", placeholder = "Склад товару" } })
+                            @Html.ValidationMessageFor(model => model.Composition, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Density, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Density, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px; margin-right: 20px;", placeholder = "Щільність товару" } })
+                            @Html.ValidationMessageFor(model => model.Density, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Producer, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Producer, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Країна - виробник" } })
+                            @Html.ValidationMessageFor(model => model.Producer, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px; margin-right: 20px;", placeholder = "Опис товару" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Style, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Style, new { htmlAttributes = new { @class = "form-control", style = "margin-left: 20px;margin-right: 20px;", placeholder = "Стиль" } })
+                            @Html.ValidationMessageFor(model => model.Style, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </td>
                 <td>
+                    <strong style="">S</strong>@Html.EditorFor(model => model.S)
+                                @Html.ValidationMessageFor(model => model.S, "", new { @class = "text-danger" })
+                            
+                    <br />
+                    <strong style="">M</strong>  @Html.EditorFor(model => model.M)
+                                @Html.ValidationMessageFor(model => model.M, "", new { @class = "text-danger" })
+                           
+
+                    <br />
+                    <strong style="">L</strong>   @Html.EditorFor(model => model.L)
+                                @Html.ValidationMessageFor(model => model.L, "", new { @class = "text-danger" })
+                        
+
+                    <br />
+                    <strong style="">XL</strong>  @Html.EditorFor(model => model.Xl)
+                                @Html.ValidationMessageFor(model => model.Xl, "", new { @class = "text-danger" })
+                   
+
+                   
+                    <br />
+                    <strong style="">XXL</strong> @Html.EditorFor(model => model.Xxl)
+                                @Html.ValidationMessageFor(model => model.Xxl, "", new { @class = "text-danger" })
+                         
+                    <br />
+                    <strong style="">3XL</strong>  @Html.EditorFor(model => model.Xl3)
+                                @Html.ValidationMessageFor(model => model.Xl3, "", new { @class = "text-danger" })
+                     
+
+                    <br />
+                    <strong style="">4XL</strong>  @Html.EditorFor(model => model.Xl4)
+                    @Html.ValidationMessageFor(model => model.Xl4, "", new { @class = "text-danger" })
+
+                </td>
+                <td>
                     <div class="form-group">
-                        <div class="col-md-10" style="background-color: blanchedalmond">
+                        <div class="col-md-10" style="background-color: azure">
                             <h4>
-                                выберите <strong> основное фото </strong> продукта
+                                оберіть <strong>фото</strong> товару
                             </h4>
-                            <p style="color: red">(обязательное поле для заполнения!)</p>
-                            <input type="file" name="upload" />
+                            <input type="file" name="upload" dirname="Обрати фото" velue="Обрати фото"/>
                         </div>
                     </div>
-                        <br />
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <h4>выберите дополнительные фото для продукта</h4>
-                            <input type="file" name="uploads" />
-                            <br />
-                            <input type="file" name="uploads" />
-                            <br />
-                            <input type="file" name="uploads" />
-                            <br />
-                            <input type="file" name="uploads" />
-                            <br />
-                            <input type="file" name="uploads" />
-                        </div>
-                    </div>
-</td>
+                </td>
             </tr>
         </table>
-        <div class="col-md-offset-2 col-md-10">
-            <table>
-                <a href="/Admin/MyPanel">
-                    <input id="Button" type="button" value="Вернуться назад" class="btn btn-default" style="float: right" />
-                </a>
+            <div class="col-md-offset-2 col-md-10">
+                <h4 align="center" style="color: red">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</h4>
+                <table>
+                    <a href="/Admin/MyPanel">
+                        <input id="Button" type="button" value="Повернутись назад" class="btn btn-default" style="float: right"/>
+                    </a>
 
-            </table><input type="submit" value="Создать товар" class="btn btn-default" style="float: left"/>
-        </div>
-        
+                </table><input type="submit" value="Створити товар" class="btn btn-default" style="float: left"/>
+            </div>
     </div>
-}*@
+}

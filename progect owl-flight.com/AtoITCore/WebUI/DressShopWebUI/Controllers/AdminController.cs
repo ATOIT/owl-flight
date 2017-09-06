@@ -73,80 +73,61 @@ namespace DressShopWebUI.Controllers
         ////------------------------------------------------------------------------------------------------------------------------------------
 
         ////------------------------------------------------Добавление товара-------------------------------------------------------------------
-        //public ActionResult AddProduct()
-        //{
-        //    return View();
-        //}
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public ActionResult AddProduct(Product product, HttpPostedFileBase upload,
-        //    IEnumerable<HttpPostedFileBase> uploads)
-        //{
-        //    if (ModelState.IsValid && upload != null)
-        //    {
-        //        List<Photo> list = new List<Photo>();
-        //        var photoName = Guid.NewGuid().ToString();
-        //        var extension = Path.GetExtension(upload.FileName);
-        //        photoName += extension;
-        //        List<string> extensions = new List<string> {".jpg", ".png", ".gif"};
-        //        // сохраняем файл
-        //        if (extensions.Contains(extension))
-        //        {
-        //            upload.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
-        //            list.Add(new Photo {PhotoUrl = photoName, Priority = true});
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Ошибка! Не верное расширение фотографии!");
-        //            return View();
-        //        }
-        //        foreach (var file in uploads)
-        //        {
-
-        //            if (file != null)
-        //            {
-        //                photoName = Guid.NewGuid().ToString();
-        //                extension = Path.GetExtension(file.FileName);
-        //                photoName += extension;
-        //                // сохраняем файл в папку Files в проекте
-        //                if (extensions.Contains(extension))
-        //                {
-        //                    file.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
-        //                    list.Add(new Photo {PhotoUrl = photoName, Priority = false});
-        //                }
-        //                else
-        //                {
-        //                    ModelState.AddModelError("", "Ошибка! Не верное расширение фотографии!");
-        //                    return View();
-        //                }
-        //            }
-        //        }
-        //        try
-        //        {
-        //            //сохраняем новый товар
-        //            _productRepository.SaveProduct(product, list);
-        //            TempData["message"] = "Товар успешно добавлен!";
-        //        }
-        //        catch (Exception)
-        //        {
-        //            //при ошибке, удаляем файлы из директории
-        //            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
-        //            foreach (FileInfo file in directory.GetFiles())
-        //            {
-        //                foreach (var i in list)
-        //                {
-        //                    if (i.PhotoUrl.Contains(file.ToString()))
-        //                        file.Delete();
-        //                }
-        //            }
-        //            TempData["message"] = "что то пошло не так :( Товар не был добавлен!";
-        //        }
-        //        return RedirectToAction("MyPanel");
-        //    }
-        //    ModelState.AddModelError("",
-        //        "Ошибка! Товар не был добавлен! проверьте пожалуйста правильность заполнения формы и наличие фото!");
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult AddProduct(Product product, HttpPostedFileBase upload)
+        {
+            if (ModelState.IsValid && upload != null)
+            {
+                //проверяем налиие размера
+                if (product.S == false && product.M == false && product.L == false && product.Xl == false && product.Xxl == false && product.Xl3 == false && product.Xl4 == false)
+                {
+                    ModelState.AddModelError("", "Ви не обрали розмір!");
+                    return View();
+                }
+                var photoName = Guid.NewGuid().ToString();
+                var extension = Path.GetExtension(upload.FileName);
+                photoName += extension;
+                List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+                // сохраняем файл
+                if (extensions.Contains(extension))
+                {
+                    upload.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Помилка! Не вірне розширення фотографії!");
+                    return View();
+                }
+               
+                try
+                {
+                    product.Photo = photoName;
+                    //сохраняем новый товар
+                    _productRepository.SaveProduct(product);
+                    TempData["message"] = "Товар успішно доданий!";
+                }
+                catch (Exception)
+                {
+                    //при ошибке, удаляем файлы из директории
+                    DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
+                    foreach (FileInfo file in directory.GetFiles())
+                    {
+                            if (file.ToString()== photoName)
+                                file.Delete();
+                    }
+                    TempData["message"] = "Щось не так :( Товар не був доданий!";
+                }
+                return RedirectToAction("MyPanel");
+            }
+            ModelState.AddModelError("",
+                "Помилка! Товар не був доданий! перевірте будь ласка правильність заповнення форми та наявність фото!");
+            return View();
+        }
 
         ////------------------------------------------------------------------------------------------------------------------------------------
 
@@ -373,7 +354,7 @@ namespace DressShopWebUI.Controllers
 
         public ActionResult OrdeResult()
         {
-            return View();
+            return View(_orderRepository.OrderDetailses.OrderByDescending(x=>x.DateOrder));
         }
 
         #endregion

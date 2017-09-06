@@ -1,10 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace Domain.Entityes
 {
-
     /// <summary>
     /// Сущьность продукта
     /// </summary>
@@ -39,7 +37,6 @@ namespace Domain.Entityes
         public string Density { get; set; }
 
         [Display(Name = "Країна-виробник")]
-        [DataType(DataType.MultilineText)]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Назва від 3 до 50 символів")]
         public string Producer { get; set; }
         

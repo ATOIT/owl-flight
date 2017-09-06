@@ -1,0 +1,71 @@
+﻿@using Domain.Entityes
+@model IEnumerable<Slider>
+
+@{
+    ViewBag.Title = "SliderResult";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" align="center"><h3>@TempData["message"]</h3></div>
+}
+
+<table class="table" style="background-color: lightgrey">
+    <tr>
+        <th class="text-center">
+            Фото
+        </th>
+        <th class="text-center">
+            Назва
+        </th>
+        <th class="text-center">
+            Номер слайду
+        </th>
+        <th class="text-center">
+            Опис слайду
+        </th>
+        <th class="text-center">
+            Дії над слайдом
+        </th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/PhotoForDB/@i.SlidePhoto" width="60" height="70" />
+            </td>
+            <td>
+                <i>@i.Name</i>
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => i.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.SlideDescription)
+            </td>
+            
+            <td class="text-center">
+                @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Get))
+                {
+                    @Html.Hidden("slideId", i.SlideId)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Редагувати" />
+                }
+            </td>
+            <td class="text-center">
+                @using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+                {
+                    @Html.Hidden("slideId", i.SlideId)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Видалити" />
+                }
+            </td>
+        </tr>
+    }
+</table>

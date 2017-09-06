@@ -8,10 +8,10 @@ namespace DressShopWebUI.Models
     public class AuthenticationModel
     {
 
-        [Required(ErrorMessage = "Неверный логин")]
+        [Required(ErrorMessage = "Невірний логін")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Неверный пароль")]
+        [Required(ErrorMessage = "Невірний пароль")]
         public string Password { get; set; }
     }
 }
