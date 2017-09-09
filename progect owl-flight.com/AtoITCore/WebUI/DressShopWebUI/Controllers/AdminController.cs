@@ -140,30 +140,31 @@ namespace DressShopWebUI.Controllers
             return View(product);
         }
 
-        //[HttpPost]
-        //public ActionResult EditProduct(Product product)
-        //{
-        //    var qvery = _productRepository.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
+        [HttpPost]
+        public ActionResult EditProduct(Product product)
+        {
+            var qvery = _productRepository.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
 
-        //    if (qvery != null && ModelState.IsValid && !qvery.Photo.Count.Equals(0))
-        //    {
-        //        try
-        //        {
-        //            _productRepository.SaveProduct(product, null);
-        //            TempData["message"] = "Изменения в товаре были сохранены";
-        //        }
-        //        catch (Exception)
-        //        {
-        //            TempData["messageBad"] = "что то пошло не так :( Товар не был изменен!";
-        //        }
-        //        return RedirectToAction("MyPanel");
-        //    }
-        //    ModelState.AddModelError("",
-        //        "Ошибка! Товар не был изменен! проверьте пожалуйста правильность заполнения формы и наличие фото!");
-        //    var productSelect = _productRepository.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
-        //    return View("EditProduct", productSelect);
+            if (qvery != null && ModelState.IsValid && qvery.Photo!="new")
+            {
+                try
+                {
+                    product.Photo = qvery.Photo;
+                    _productRepository.SaveProduct(product);
+                    TempData["message"] = "Зміни в товарі були збережені";
+                }
+                catch (Exception)
+                {
+                    TempData["messageBad"] = "Щось не так :( Товар не був змінений!";
+                }
+                return RedirectToAction("MyPanel");
+            }
+            ModelState.AddModelError("",
+                "Помилка! Товар не був доданий! перевірте будь ласка правильність заповнення форми та наявність фото!");
+            var productSelect = _productRepository.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
+            return View("EditProduct", productSelect);
 
-        //}
+        }
 
         ////------------------------------------------------Удаление товара---------------------------------------------------------------------
         [HttpPost]
@@ -187,69 +188,62 @@ namespace DressShopWebUI.Controllers
         ////------------------------------------------------------------------------------------------------------------------------------------
 
         ////------------------------------------------------Редактот фото товара----------------------------------------------------------------
-        //[HttpPost]
-        //public ActionResult PriorityСhangesPhoto(int idProduct, int id) // Изменение приоритета фото
-        //{
-        //    try
-        //    {
-        //        _productRepository.PriorityСhangesPhoto(idProduct,id);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        ViewBag.Error = "Ошибка! Что то пошло не так :( Приоритет фото не был изменен!";
-        //    }
-        //    var product = _productRepository.Products.FirstOrDefault(x => x.ProductId == idProduct);
-        //    if (product != null)
-        //        return PartialView("EditPhoto", product.Photo.ToList());
-        //    return PartialView("EditPhoto", new List<Photo>());
-        //}
 
 
-        //[HttpPost]
-        //public ActionResult DeletePhoto(int idProduct, int id = 0) // Удаление фото
-        //{
-        //    DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
-        //    try
-        //    {
-        //        _productRepository.RemovePhoto(idProduct, id, directory);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        ViewBag.Error = "Ошибка! Что то пошло не так :( Мы не смогли удалить фото! ";
-        //    }
-        //    var product = _productRepository.Products.FirstOrDefault(x => x.ProductId == idProduct);
-        //    if (product != null)
-        //        return  PartialView("EditPhoto", product.Photo.ToList());
-        //    return PartialView("EditPhoto", new List<Photo>());
-        //}
+        [HttpPost]
+        public ActionResult DeletePhoto(int idProduct) // Удаление фото
+        {
+            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
+            try
+            {
+                _productRepository.RemovePhoto(idProduct, directory);
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Ошибка! Что то пошло не так :( Мы не смогли удалить фото! ";
+            }
+            var product = _productRepository.Products.FirstOrDefault(x => x.ProductId == idProduct);
+            if (product != null)
+                return PartialView("EditPhoto", product);
+            return PartialView("EditPhoto", new Product());
+        }
         ////------------------------------------------------------------------------------------------------------------------------------------
         ////------------------------------------------------Добавление фото на сервер-----------------------------------------------------------
 
-        //[HttpPost]
-        //public ActionResult UploadPhoto(int productId, HttpPostedFileBase fileInput)
-        //{
-        //    var product = _productRepository.Products.FirstOrDefault(x => x.ProductId == productId);
-        //    var photoName = Guid.NewGuid().ToString();
-        //    var extension = Path.GetExtension(fileInput.FileName);
-        //    photoName += extension;
-        //    List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
-        //    // сохраняем файл
-        //    if (extensions.Contains(extension))
-        //    {
-        //        fileInput.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
-        //        _productRepository.SavePhoto(productId, photoName);
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("", "Ошибка! Не верное расширение фотографии!");
-        //        if (product != null)
-        //            PartialView("EditPhoto", product.Photo.ToList());
-        //        return PartialView("EditPhoto", new List<Photo>());
-        //    }
-        //    if (product != null)
-        //        return PartialView("EditPhoto", product.Photo.ToList());
-        //    return PartialView("EditPhoto", new List<Photo>() );
-        //}
+        [HttpPost]
+        public ActionResult UploadPhoto(int productId, HttpPostedFileBase fileInput)
+        {
+            var product = _productRepository.Products.FirstOrDefault(x => x.ProductId == productId);
+            var photoName = Guid.NewGuid().ToString();
+            var extension = Path.GetExtension(fileInput.FileName);
+            photoName += extension;
+            List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+            // сохраняем файл
+            if (extensions.Contains(extension))
+            {
+                if (product != null && product.Photo=="new")
+                {
+                    fileInput.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
+                    _productRepository.SavePhoto(productId, photoName);
+                }
+                else
+                {
+                    ViewBag.Error = "Помилка! Товар вже має фото!";
+                    if (product != null)
+                        return PartialView("EditPhoto", product);
+                    return PartialView("EditPhoto", new Product());
+                }
+                
+            }
+            else
+            {
+                ModelState.AddModelError("", "Помилка! Не вірне розширення фотографії!");
+                if (product != null)
+                    PartialView("EditPhoto", product);
+                return PartialView("EditPhoto", new Product());
+            }
+            return PartialView("EditPhoto", product);
+        }
 
         ////------------------------------------------------------------------------------------------------------------------------------------
 
@@ -261,92 +255,70 @@ namespace DressShopWebUI.Controllers
         [HttpGet]
         public ActionResult SliderResult()
         {
-            //выбираем все отзывы
             return View(_sliderRepository.Sliders.
                         OrderBy(x => x.Number));
         }
+        ////------------------------------------------------------------------------------------------------------------------------------------
 
-        //[HttpPost]
-        //public ActionResult EditingReviews(SortType sortType)
-        //{
-        //    //сортируем отзывы
-        //    var reviews = _reviewsRepository.Reviewses;
-        //    switch (sortType)
-        //    {
-        //        case SortType.Before:
-        //            reviews = _reviewsRepository.Reviewses.
-        //                OrderByDescending(x => x.DateFeedback);
-        //            break;
-        //        case SortType.Later:
-        //            reviews = _reviewsRepository.Reviewses.
-        //                OrderBy(x => x.DateFeedback);
-        //            break;
-        //    }
-        //    return PartialView("PartialEditingReviews", reviews);
-        //}
+        ////------------------------------------------------Добавление слайда----------------------------------------------------------------
+        public ActionResult AddSlider()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult AddSlider(Slider slider, HttpPostedFileBase upload)
+        {
+            if (ModelState.IsValid && upload != null)
+            {
+                var photoName = Guid.NewGuid().ToString();
+                var extension = Path.GetExtension(upload.FileName);
+                photoName += extension;
+                List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+                // сохраняем файл
+                if (extensions.Contains(extension))
+                {
+                    upload.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Помилка! Не вірне розширення фотографії!");
+                    return View();
+                }
+
+                try
+                {
+                    slider.SlidePhoto = photoName;
+                    //сохраняем новый товар
+                    _sliderRepository.SaveSlider(slider);
+                    TempData["message"] = "Слайд успішно доданий!";
+                }
+                catch (Exception)
+                {
+                    //при ошибке, удаляем файлы из директории
+                    DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
+                    foreach (FileInfo file in directory.GetFiles())
+                    {
+                        if (file.ToString() == photoName)
+                            file.Delete();
+                    }
+                    TempData["message"] = "Щось не так :( Слайд не був доданий!";
+                }
+                return RedirectToAction("SliderResult");
+            }
+            ModelState.AddModelError("",
+                "Помилка! Слайд не був доданий! перевірте будь ласка правильність заповнення форми та наявність фото!");
+            return View();
+        }
 
         ////------------------------------------------------------------------------------------------------------------------------------------
 
-        ////------------------------------------------------Редактировние отзыва----------------------------------------------------------------
-        //[HttpGet]
-        //public ActionResult EditReview(int reviewId)
-        //{
-        //    //выбираем отзыв для редактирования
-        //    var review = _reviewsRepository.Reviewses.FirstOrDefault(x => x.ReviewId == reviewId);
-        //    return View(review);
-        //}
+        ////------------------------------------------------Редактировние слайда----------------------------------------------------------------
 
-        //[HttpPost]
-        //public ActionResult EditReview(Reviews review)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            //пробуем отредактировать отзыв
-        //            _reviewsRepository.SaveReview(review);
-        //            TempData["message"] = "Изменения в отзыве были сохранены";
-        //            return RedirectToAction("EditingReviews");
-        //        }
-        //        TempData["message"] = "Ошибка! Изменения не были сохранены, проверьте данные!";
-        //        return RedirectToAction("EditReview", review.ReviewId);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        TempData["message"] = "Ошибка! мы не смогли сохранить изменения в отзыве :(";
-        //        return RedirectToAction("EditReview", review.ReviewId);
-        //    }
-        //}
         ////------------------------------------------------------------------------------------------------------------------------------------
 
+        ////------------------------------------------------Удаление удаление слайда---------------------------------------------------------------------
 
-        ////------------------------------------------------Удаление отзыва---------------------------------------------------------------------
-        //[HttpGet]
-        //public ActionResult DeleteReviews(int reviewId)
-        //{
-        //    //выбираем отзыв для удаления
-        //    var review = _reviewsRepository.Reviewses.FirstOrDefault(x => x.ReviewId == reviewId);
-        //    return View(review);
-        //}
-
-        //[HttpPost]
-        //public ActionResult DeleteReviews(Reviews review)
-        //{
-        //    try
-        //    {
-        //        //пробуем удалить отзыв
-        //        _reviewsRepository.RemoveReview(review);
-        //        TempData["message"] = "Отзыв был успешно удален!";
-        //        return RedirectToAction("EditingReviews");
-        //    }
-        //    catch (Exception)
-        //    {
-        //        //ошибка в базе и т.д.
-        //        TempData["message"] = "Ошибка! Мы не смогли удалить отзыв :( ";
-        //        return RedirectToAction("DeleteReviews", review.ReviewId);
-        //    }
-        //}
         ////------------------------------------------------------------------------------------------------------------------------------------
         #endregion
 

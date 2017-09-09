@@ -2,7 +2,7 @@
 
 @if (Model.Photo!="new")
 {
-   <h3 align="center" style="color:  red">@ViewBag.Error</h3>
+   <h4 align="center" style="color:  red">@ViewBag.Error</h4>
 <table class="table">
         <tr>
             <td>
@@ -15,11 +15,10 @@
                 <script>
                     $(document)
                         .ready(function () {
-
                             $("#@(Model.ProductId + "ButtonDelete")")
                                 .click(function () {
                                     var data = {
-                                        idProduct: ('@Model.ProductId'),
+                                        idProduct: ('@Model.ProductId')
                                     };
                                     $.ajax({
                                         url: "/Admin/DeletePhoto",

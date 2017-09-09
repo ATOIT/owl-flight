@@ -5,13 +5,20 @@
     ViewBag.Title = "SliderResult";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@if (TempData["messageBad"] != null)
+{
+    <div align="center"><h3 style="color: red">@TempData["message"]</h3></div>
+    <br />
+    <br />
+}
 
 @if (TempData["message"] != null)
 {
     <div class="alert alert-success" align="center"><h3>@TempData["message"]</h3></div>
 }
-
+<br />
+<a href="/Admin/AddSlider" class="btn btn-primary btn-lg">Додати слайд</a>
+<br /><br />
 <table class="table" style="background-color: lightgrey">
     <tr>
         <th class="text-center">
@@ -49,7 +56,7 @@
             </td>
             
             <td class="text-center">
-                @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Get))
+                @using (Html.BeginForm("EditSlider", "Admin", FormMethod.Get))
                 {
                     @Html.Hidden("slideId", i.SlideId)
                     <input type="submit"
@@ -58,7 +65,7 @@
                 }
             </td>
             <td class="text-center">
-                @using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+                @using (Html.BeginForm("DeleteSlider", "Admin", FormMethod.Post))
                 {
                     @Html.Hidden("slideId", i.SlideId)
                     <input type="submit"

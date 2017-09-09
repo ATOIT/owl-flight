@@ -124,13 +124,13 @@ namespace Domain.Concrete
                 try
                 {
                     var urlDell = oneProduct.Photo;
-                    oneProduct.Photo = "";
+                    oneProduct.Photo = "new";
                     _context.SaveChanges();
-                    foreach (FileInfo file in directory.GetFiles()) //Пока закоментирую, для удобства
-                    {
-                        if (file.ToString() == urlDell)
-                            file.Delete();
-                    }
+                    //foreach (FileInfo file in directory.GetFiles()) //Пока закоментирую, для удобства
+                    //{
+                    //    if (file.ToString() == urlDell)
+                    //        file.Delete();
+                    //}
                 }
                 catch (Exception)
                 {
