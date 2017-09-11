@@ -441,7 +441,7 @@ namespace DressShopWebUI.Models
 
             db.OrderDetails.Add(new OrderDetails
             {
-                Status = "Новие замовлення",
+                Status = "новий",
                 Address = "На деревню бабушке",
                 ClientName = "Вася Пупкин",
                 Delivery = "Нова пошта",
@@ -455,7 +455,7 @@ namespace DressShopWebUI.Models
 
             db.OrderDetails.Add(new OrderDetails
             {
-                Status = "Виконане замовлення",
+                Status = "виконаний",
                 Address = "На деревню бабушке",
                 ClientName = "Петручо",
                 Delivery = "Нова пошта",
@@ -469,7 +469,7 @@ namespace DressShopWebUI.Models
 
             db.OrderDetails.Add(new OrderDetails
             {
-                Status = "Новие замовлення",
+                Status = "новий",
                 Address = "На деревню бабушке",
                 ClientName = "Алибаба",
                 Delivery = "Нова пошта",

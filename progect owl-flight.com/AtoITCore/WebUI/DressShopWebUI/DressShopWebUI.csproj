@@ -216,6 +216,9 @@
     <Content Include="Views\Admin\SliderResult.cshtml" />
     <Content Include="Views\Admin\OrdeResult.cshtml" />
     <Content Include="Views\Admin\AddSlider.cshtml" />
+    <Content Include="Views\Admin\EditSlider.cshtml" />
+    <Content Include="Views\Admin\SlidePhoto.cshtml" />
+    <Content Include="Views\Admin\Orders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

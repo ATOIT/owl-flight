@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entityes
 {
@@ -37,18 +36,5 @@ namespace Domain.Entityes
         [DataType(DataType.MultilineText)]
         [StringLength(500, MinimumLength = 3, ErrorMessage = "Довжина коментарія від 3 до 500 символів")]
         public string Сomment { get; set; }
-        [Display(Name = "Дата заказа")]
-        [Required]
-        public DateTime DateOrder
-        {
-            get
-            {
-                return DateTime.Now;
-            }
-            set
-            {
-               value = DateOrder ;
-            }
-        }
     }
 }

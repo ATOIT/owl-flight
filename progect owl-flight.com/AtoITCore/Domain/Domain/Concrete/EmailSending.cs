@@ -125,7 +125,7 @@ namespace Domain.Concrete
                 str.AppendLine("");
             }
             str.AppendLine("");
-            str.AppendFormat("Дата заказу -  {0:U}", details.DateOrder);
+            str.AppendFormat("Дата заказу -  {0:U}", DateTime.Now);
             str.AppendLine("");
             str.AppendLine("Замовлення відправлений в обробку, скоро ми з вами зв'яжемося, гарного вам дня!");
 
@@ -174,7 +174,7 @@ namespace Domain.Concrete
             }
             str.AppendLine("");
             str.AppendLine("");
-            str.AppendFormat("Дата заказу -  {0:U}", details.DateOrder);
+            str.AppendFormat("Дата заказу -  {0:U}", DateTime.Now);
             return str.ToString();
         }
 

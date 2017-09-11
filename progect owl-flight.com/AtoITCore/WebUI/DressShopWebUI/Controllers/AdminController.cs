@@ -28,7 +28,7 @@ namespace DressShopWebUI.Controllers
             _sliderRepository = sliderRepo;
         }
 
-        //#region Работа с товарами
+        #region Работа с товарами
 
         ////------------------------------------------------Стартовая страница------------------------------------------------------------------
         public ActionResult MyPanel()
@@ -103,7 +103,7 @@ namespace DressShopWebUI.Controllers
                     ModelState.AddModelError("", "Помилка! Не вірне розширення фотографії!");
                     return View();
                 }
-               
+
                 try
                 {
                     product.Photo = photoName;
@@ -117,8 +117,8 @@ namespace DressShopWebUI.Controllers
                     DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
                     foreach (FileInfo file in directory.GetFiles())
                     {
-                            if (file.ToString()== photoName)
-                                file.Delete();
+                        if (file.ToString() == photoName)
+                            file.Delete();
                     }
                     TempData["message"] = "Щось не так :( Товар не був доданий!";
                 }
@@ -145,7 +145,7 @@ namespace DressShopWebUI.Controllers
         {
             var qvery = _productRepository.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
 
-            if (qvery != null && ModelState.IsValid && qvery.Photo!="new")
+            if (qvery != null && ModelState.IsValid && qvery.Photo != "new")
             {
                 try
                 {
@@ -160,9 +160,8 @@ namespace DressShopWebUI.Controllers
                 return RedirectToAction("MyPanel");
             }
             ModelState.AddModelError("",
-                "Помилка! Товар не був доданий! перевірте будь ласка правильність заповнення форми та наявність фото!");
-            var productSelect = _productRepository.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
-            return View("EditProduct", productSelect);
+                "Помилка! Товар не був змінений! перевірте будь ласка правильність заповнення форми та наявність фото!");
+            return View("EditProduct", qvery);
 
         }
 
@@ -185,8 +184,6 @@ namespace DressShopWebUI.Controllers
 
         ////------------------------------------------------------------------------------------------------------------------------------------
 
-        ////------------------------------------------------------------------------------------------------------------------------------------
-
         ////------------------------------------------------Редактот фото товара----------------------------------------------------------------
 
 
@@ -200,7 +197,7 @@ namespace DressShopWebUI.Controllers
             }
             catch (Exception)
             {
-                ViewBag.Error = "Ошибка! Что то пошло не так :( Мы не смогли удалить фото! ";
+                ViewBag.Error = "Щось не так :( Ми не змогли видалити фото! ";
             }
             var product = _productRepository.Products.FirstOrDefault(x => x.ProductId == idProduct);
             if (product != null)
@@ -221,7 +218,7 @@ namespace DressShopWebUI.Controllers
             // сохраняем файл
             if (extensions.Contains(extension))
             {
-                if (product != null && product.Photo=="new")
+                if (product != null && product.Photo == "new")
                 {
                     fileInput.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
                     _productRepository.SavePhoto(productId, photoName);
@@ -233,7 +230,7 @@ namespace DressShopWebUI.Controllers
                         return PartialView("EditPhoto", product);
                     return PartialView("EditPhoto", new Product());
                 }
-                
+
             }
             else
             {
@@ -248,7 +245,7 @@ namespace DressShopWebUI.Controllers
         ////------------------------------------------------------------------------------------------------------------------------------------
 
 
-        //#endregion
+        #endregion
 
         #region Работа cо слайдером
         ////------------------------------------------------Стартовая страница------------------------------------------------------------------
@@ -314,20 +311,145 @@ namespace DressShopWebUI.Controllers
         ////------------------------------------------------------------------------------------------------------------------------------------
 
         ////------------------------------------------------Редактировние слайда----------------------------------------------------------------
+        [HttpGet]
+        public ActionResult EditSlider(int slideId)
+        {
+            var slide = _sliderRepository.Sliders.FirstOrDefault(x => x.SlideId == slideId);
 
-        ////------------------------------------------------------------------------------------------------------------------------------------
+            return View(slide);
+        }
 
-        ////------------------------------------------------Удаление удаление слайда---------------------------------------------------------------------
+        [HttpPost]
+        public ActionResult EditSlider(Slider slider)
+        {
+            var qvery = _sliderRepository.Sliders.FirstOrDefault(x => x.SlideId == slider.SlideId);
 
+            if (qvery != null && ModelState.IsValid && qvery.SlidePhoto != "new")
+            {
+                try
+                {
+                    slider.SlidePhoto = qvery.SlidePhoto;
+                    _sliderRepository.SaveSlider(slider);
+                    TempData["message"] = "Зміни в слайдері були збережені";
+                }
+                catch (Exception)
+                {
+                    TempData["messageBad"] = "Щось не так :( Слайдер не був змінений!";
+                }
+                return RedirectToAction("SliderResult");
+            }
+            ModelState.AddModelError("",
+                "Помилка! Слайд не був змінений! перевірте будь ласка правильність заповнення форми та наявність фото!");
+            return View("EditSlider", qvery);
+
+        }
+        //--------------------------------------------------Редактор фото слайда-----------------------------------------------------------
+        [HttpPost]
+        public ActionResult DeleteSlidePhoto(int idSlide) // Удаление фото
+        {
+            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
+            try
+            {
+                _sliderRepository.RemovePhoto(idSlide, directory);
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Щось не так :( Ми не змогли видалити фото!";
+            }
+            var slide = _sliderRepository.Sliders.FirstOrDefault(x => x.SlideId == idSlide);
+            if (slide != null)
+                return PartialView("SlidePhoto", slide);
+            return PartialView("SlidePhoto", new Slider());
+        }
+
+
+        [HttpPost]
+        public ActionResult UploadSlidePhoto(int slideId, HttpPostedFileBase fileInput)
+        {
+            var slide = _sliderRepository.Sliders.FirstOrDefault(x => x.SlideId == slideId);
+            var photoName = Guid.NewGuid().ToString();
+            var extension = Path.GetExtension(fileInput.FileName);
+            photoName += extension;
+            List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+            // сохраняем файл
+            if (extensions.Contains(extension))
+            {
+                if (slide != null && slide.SlidePhoto == "new")
+                {
+                    fileInput.SaveAs(Server.MapPath("~/PhotoForDB/" + photoName));
+                    _sliderRepository.SavePhoto(slideId, photoName);
+                }
+                else
+                {
+                    ViewBag.Error = "Помилка! Слайд вже має фото!";
+                    if (slide != null)
+                        return PartialView("SlidePhoto", slide);
+                    return PartialView("SlidePhoto", new Slider());
+                }
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "Помилка! Не вірне розширення фотографії!");
+                if (slide != null)
+                    PartialView("SlidePhoto", slide);
+                return PartialView("SlidePhoto", new Slider());
+            }
+            return PartialView("SlidePhoto", slide);
+        }
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+        ////------------------------------------------------Удаление слайда---------------------------------------------------------------------
+        [HttpPost]
+        public ActionResult DeleteSlide(int slideId)
+        {
+            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/PhotoForDB/"));
+            try
+            {
+                _sliderRepository.RemoveSlider(slideId, directory);
+                TempData["message"] = "Слайд був успішно видалений!";
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Щось не так :( Слайд не був видалений!";
+            }
+            return RedirectToAction("SliderResult");
+        }
         ////------------------------------------------------------------------------------------------------------------------------------------
         #endregion
 
         #region работа с заказами
-
+        //--------------------------------------------Стартовая страница-----------------------------------------------
         public ActionResult OrdeResult()
         {
-            return View(_orderRepository.OrderDetailses.OrderByDescending(x=>x.DateOrder));
+            return View(_orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder));
         }
+
+        [HttpPost]
+        public ActionResult OrdeResult(SortType sortType)
+        {
+            var sortOrders = _orderRepository.OrderDetailses;
+            switch (sortType)
+            {
+                case SortType.None:
+                    return PartialView("Orders", sortOrders.OrderByDescending(x => x.DateOrder));
+                case SortType.Before:
+                    sortOrders = from i in sortOrders
+                        where i.Status == "новий"
+                        select i;
+                    return PartialView("Orders", sortOrders);
+                case SortType.Later:
+                    sortOrders = from i in sortOrders
+                                 where i.Status == "виконаний"
+                                 select i;
+                    return PartialView("Orders", sortOrders); 
+            }
+            return PartialView("Orders", sortOrders.OrderByDescending(x => x.DateOrder));
+        }
+        //--------------------------------------------------------------------------------------------------------------
+
+
+
 
         #endregion
     }
@@ -341,6 +463,6 @@ namespace DressShopWebUI.Controllers
         Later = 2
     }
     //emum для сортировки по категории
- 
+
 
 }

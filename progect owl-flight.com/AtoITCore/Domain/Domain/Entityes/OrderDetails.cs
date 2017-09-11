@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entityes
 {
@@ -15,5 +16,9 @@ namespace Domain.Entityes
         [Display(Name = "Заказ")]
         [DataType(DataType.MultilineText)]
         public string Order { get; set; }
+
+        [Display(Name = "Дата заказа")]
+        [Required]
+        public DateTime DateOrder => DateTime.Now;
     }
 }

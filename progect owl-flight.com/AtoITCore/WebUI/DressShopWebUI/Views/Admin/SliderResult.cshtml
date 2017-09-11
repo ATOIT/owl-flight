@@ -2,7 +2,7 @@
 @model IEnumerable<Slider>
 
 @{
-    ViewBag.Title = "SliderResult";
+    ViewBag.Title = "Слайдер";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @if (TempData["messageBad"] != null)
@@ -65,7 +65,7 @@
                 }
             </td>
             <td class="text-center">
-                @using (Html.BeginForm("DeleteSlider", "Admin", FormMethod.Post))
+                @using (Html.BeginForm("DeleteSlide", "Admin", FormMethod.Post))
                 {
                     @Html.Hidden("slideId", i.SlideId)
                     <input type="submit"

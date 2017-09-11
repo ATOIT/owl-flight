@@ -87,7 +87,7 @@ namespace Domain.Concrete
                 try
                 {
                     var urlDell = oneSlide.SlidePhoto;
-                    oneSlide.SlidePhoto = "";
+                    oneSlide.SlidePhoto = "new";
                     _context.SaveChanges();
                     foreach (FileInfo file in directory.GetFiles()) 
                     {

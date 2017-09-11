@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Domain.Abstrac;
@@ -62,7 +63,6 @@ namespace DressShopWebUI.Controllers
                     Address = basketViewModel.Orders.Address,
                     Status = "Нове замовлення",
                     Сomment = basketViewModel.Orders.Сomment,
-                    DateOrder = basketViewModel.Orders.DateOrder,
                     Order = order.ToString()
                 };
                 _orderRepository.SaveOrder(newOrder);
@@ -95,10 +95,7 @@ namespace DressShopWebUI.Controllers
             {
                 return RedirectToAction("Index", new { returnUrl });
             }
-            else
-            {
                 return Redirect(returnUrl);
-            }
            
         }
 
