@@ -44,13 +44,49 @@ namespace Domain.Concrete
         public void RemoveOrder(int orderId)
         {
             var oneOrder = _context.OrderDetails.FirstOrDefault(x => x.OrderId == orderId);
-            if (oneOrder!=null)
+            if (oneOrder != null)
             {
-                _context.OrderDetails.Remove(oneOrder);
-                _context.SaveChanges();
+                OrderDetails order = _context.OrderDetails.Find(oneOrder.OrderId);
+                if (order != null)
+                {
+                    _context.OrderDetails.Remove(oneOrder);
+                    _context.SaveChanges();
+                }
+                else
+                    throw new Exception();
             }
-            else
-                throw new Exception();
+        }
+
+        public void OrderComplite(int orderId)
+        {
+            var oneOrder = _context.OrderDetails.FirstOrDefault(x => x.OrderId == orderId);
+            if (oneOrder != null)
+            {
+                OrderDetails order = _context.OrderDetails.Find(oneOrder.OrderId);
+                if (order != null)
+                {
+                    order.Status = "виконаний";
+                    _context.SaveChanges();
+                }
+                else
+                    throw new Exception();
+            }
+        }
+
+        public void OrderNew(int orderId)
+        {
+            var oneOrder = _context.OrderDetails.FirstOrDefault(x => x.OrderId == orderId);
+            if (oneOrder != null)
+            {
+                OrderDetails order = _context.OrderDetails.Find(oneOrder.OrderId);
+                if (order != null)
+                {
+                    order.Status = "новий"; 
+                    _context.SaveChanges();
+                }
+                else
+                    throw new Exception();
+            }
         }
     }
 }

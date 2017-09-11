@@ -9,5 +9,7 @@ namespace Domain.Abstrac
         IEnumerable<OrderDetails> OrderDetailses { get; }
         void SaveOrder(OrderDetails orderDetails);
         void RemoveOrder(int orderId);
+        void OrderComplite(int orderId);
+        void OrderNew(int orderId);
     }
 }

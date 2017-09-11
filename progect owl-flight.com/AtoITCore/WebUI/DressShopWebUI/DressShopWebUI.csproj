@@ -201,11 +201,7 @@
     <Content Include="Views\Basket\Thanks.cshtml" />
     <Content Include="Views\Basket\BasketOnView.cshtml" />
     <Content Include="Views\My\Login.cshtml" />
-    <Content Include="Views\Admin\EditingReviews.cshtml" />
     <Content Include="Views\Admin\MyPanel.cshtml" />
-    <Content Include="Views\Admin\EditReview.cshtml" />
-    <Content Include="Views\Admin\DeleteReviews.cshtml" />
-    <Content Include="Views\Admin\PartialEditingReviews.cshtml" />
     <Content Include="Views\Admin\PartialMyPanel.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Admin\EditPhoto.cshtml" />

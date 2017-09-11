@@ -84,7 +84,8 @@ namespace DressShopWebUI.Controllers
             if (ModelState.IsValid && upload != null)
             {
                 //проверяем налиие размера
-                if (product.S == false && product.M == false && product.L == false && product.Xl == false && product.Xxl == false && product.Xl3 == false && product.Xl4 == false)
+                if (product.S == false && product.M == false && product.L == false && product.Xl == false &&
+                    product.Xxl == false && product.Xl3 == false && product.Xl4 == false)
                 {
                     ModelState.AddModelError("", "Ви не обрали розмір!");
                     return View();
@@ -92,7 +93,7 @@ namespace DressShopWebUI.Controllers
                 var photoName = Guid.NewGuid().ToString();
                 var extension = Path.GetExtension(upload.FileName);
                 photoName += extension;
-                List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+                List<string> extensions = new List<string> {".jpg", ".png", ".gif"};
                 // сохраняем файл
                 if (extensions.Contains(extension))
                 {
@@ -204,6 +205,7 @@ namespace DressShopWebUI.Controllers
                 return PartialView("EditPhoto", product);
             return PartialView("EditPhoto", new Product());
         }
+
         ////------------------------------------------------------------------------------------------------------------------------------------
         ////------------------------------------------------Добавление фото на сервер-----------------------------------------------------------
 
@@ -214,7 +216,7 @@ namespace DressShopWebUI.Controllers
             var photoName = Guid.NewGuid().ToString();
             var extension = Path.GetExtension(fileInput.FileName);
             photoName += extension;
-            List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+            List<string> extensions = new List<string> {".jpg", ".png", ".gif"};
             // сохраняем файл
             if (extensions.Contains(extension))
             {
@@ -248,13 +250,15 @@ namespace DressShopWebUI.Controllers
         #endregion
 
         #region Работа cо слайдером
+
         ////------------------------------------------------Стартовая страница------------------------------------------------------------------
         [HttpGet]
         public ActionResult SliderResult()
         {
             return View(_sliderRepository.Sliders.
-                        OrderBy(x => x.Number));
+                OrderBy(x => x.Number));
         }
+
         ////------------------------------------------------------------------------------------------------------------------------------------
 
         ////------------------------------------------------Добавление слайда----------------------------------------------------------------
@@ -271,7 +275,7 @@ namespace DressShopWebUI.Controllers
                 var photoName = Guid.NewGuid().ToString();
                 var extension = Path.GetExtension(upload.FileName);
                 photoName += extension;
-                List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+                List<string> extensions = new List<string> {".jpg", ".png", ".gif"};
                 // сохраняем файл
                 if (extensions.Contains(extension))
                 {
@@ -343,6 +347,7 @@ namespace DressShopWebUI.Controllers
             return View("EditSlider", qvery);
 
         }
+
         //--------------------------------------------------Редактор фото слайда-----------------------------------------------------------
         [HttpPost]
         public ActionResult DeleteSlidePhoto(int idSlide) // Удаление фото
@@ -370,7 +375,7 @@ namespace DressShopWebUI.Controllers
             var photoName = Guid.NewGuid().ToString();
             var extension = Path.GetExtension(fileInput.FileName);
             photoName += extension;
-            List<string> extensions = new List<string> { ".jpg", ".png", ".gif" };
+            List<string> extensions = new List<string> {".jpg", ".png", ".gif"};
             // сохраняем файл
             if (extensions.Contains(extension))
             {
@@ -397,6 +402,7 @@ namespace DressShopWebUI.Controllers
             }
             return PartialView("SlidePhoto", slide);
         }
+
         //------------------------------------------------------------------------------------------------------------------------------------
 
         ////------------------------------------------------Удаление слайда---------------------------------------------------------------------
@@ -415,10 +421,13 @@ namespace DressShopWebUI.Controllers
             }
             return RedirectToAction("SliderResult");
         }
+
         ////------------------------------------------------------------------------------------------------------------------------------------
+
         #endregion
 
         #region работа с заказами
+
         //--------------------------------------------Стартовая страница-----------------------------------------------
         public ActionResult OrdeResult()
         {
@@ -440,17 +449,59 @@ namespace DressShopWebUI.Controllers
                     return PartialView("Orders", sortOrders);
                 case SortType.Later:
                     sortOrders = from i in sortOrders
-                                 where i.Status == "виконаний"
-                                 select i;
-                    return PartialView("Orders", sortOrders); 
+                        where i.Status == "виконаний"
+                        select i;
+                    return PartialView("Orders", sortOrders);
             }
             return PartialView("Orders", sortOrders.OrderByDescending(x => x.DateOrder));
         }
+
         //--------------------------------------------------------------------------------------------------------------
 
+        //--------------------------------------------Заказ выполнен----------------------------------------------------
+        public ActionResult OrderOk(int orderId)
+        {
+            try
+            {
+                _orderRepository.OrderComplite(orderId);
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Щось не так :( Статус не був змінений!";
+            }
+            return PartialView("Orders", _orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder));
+        }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //--------------------------------------------Заказ новый-------------------------------------------------------
+        public ActionResult OrderNew(int orderId)
+        {
+            try
+            {
+                _orderRepository.OrderNew(orderId);
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Щось не так :( Статус не був змінений!";
+            }
+            return PartialView("Orders", _orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder));
+        }
+        //--------------------------------------------------------------------------------------------------------------
 
-
+        //--------------------------------------------удаление заказа---------------------------------------------------
+        public ActionResult OrderDelite(int orderId)
+        {
+            try
+            {
+                _orderRepository.RemoveOrder(orderId);
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Щось не так :( Відгук не був видалений!";
+            }
+            return PartialView("Orders", _orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder));
+        }
+        //--------------------------------------------------------------------------------------------------------------
         #endregion
     }
 

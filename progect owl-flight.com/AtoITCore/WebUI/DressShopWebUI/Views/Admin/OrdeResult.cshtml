@@ -15,16 +15,10 @@
 </select>
 <br /><br />
 
-@if (Model.Count().Equals(0))
-{
-    <h2 align="center">у вас немає замовлень</h2>
-}
-@if (!Model.Count().Equals(0))
-{
     <div id="OrdersInAdmin">
         @Html.Partial("Orders", Model)
     </div>
-}
+
 <script>
     $(document)
         .ready(function() {

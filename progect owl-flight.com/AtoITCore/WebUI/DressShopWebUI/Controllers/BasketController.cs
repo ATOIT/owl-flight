@@ -51,7 +51,7 @@ namespace DressShopWebUI.Controllers
                 StringBuilder order = new StringBuilder();
                 foreach (var i in basket.Lines)
                 {
-                    order.Append($"{i.Product.Name} розмір - {i.Size}");
+                    order.AppendFormat($"{i.Product.Name} розмір - {i.Size}");
                 }
                 OrderDetails newOrder = new OrderDetails
                 {
@@ -61,7 +61,7 @@ namespace DressShopWebUI.Controllers
                     Payment = basketViewModel.Orders.Payment,
                     Delivery = basketViewModel.Orders.Delivery,
                     Address = basketViewModel.Orders.Address,
-                    Status = "Нове замовлення",
+                    Status = "новий",
                     Сomment = basketViewModel.Orders.Сomment,
                     Order = order.ToString()
                 };
