@@ -48,11 +48,7 @@ namespace DressShopWebUI.Controllers
                 _emailSending.SendMailToAdministrator(basket,basketViewModel.Orders,null);
                 _emailSending.SendMail(basket, basketViewModel.Orders, null);
                 //записываем покупку в базу
-                StringBuilder order = new StringBuilder();
-                foreach (var i in basket.Lines)
-                {
-                    order.AppendFormat($"{i.Product.Name} розмір - {i.Size}");
-                }
+              
                 OrderDetails newOrder = new OrderDetails
                 {
                     ClientName = basketViewModel.Orders.ClientName,
@@ -62,8 +58,7 @@ namespace DressShopWebUI.Controllers
                     Delivery = basketViewModel.Orders.Delivery,
                     Address = basketViewModel.Orders.Address,
                     Status = "новий",
-                    Сomment = basketViewModel.Orders.Сomment,
-                    Order = order.ToString()
+                    Сomment = basketViewModel.Orders.Сomment
                 };
                 _orderRepository.SaveOrder(newOrder);
                 return RedirectToAction("Thanks","Basket");

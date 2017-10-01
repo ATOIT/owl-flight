@@ -3,9 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entityes
 {
-    /// <summary>
-    /// Сущьность продукта
-    /// </summary>
     public class Product
     {
        

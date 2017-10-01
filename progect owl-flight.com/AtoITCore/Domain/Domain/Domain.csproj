@@ -91,6 +91,7 @@
     <Compile Include="Entityes\Order.cs" />
     <Compile Include="Entityes\OrderDetails.cs" />
     <Compile Include="Entityes\Product.cs" />
+    <Compile Include="Entityes\ProductInOrder.cs" />
     <Compile Include="Entityes\Slider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

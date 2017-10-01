@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entityes
@@ -13,12 +14,10 @@ namespace Domain.Entityes
         [Required]
         public string Status  { get; set; }
 
-        [Display(Name = "Заказ")]
-        [DataType(DataType.MultilineText)]
-        public string Order { get; set; }
-
         [Display(Name = "Дата заказа")]
         [Required]
-        public DateTime DateOrder => DateTime.Now;
+        public DateTime DateOrder { get; set; }
+
+        public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
     }
 }
