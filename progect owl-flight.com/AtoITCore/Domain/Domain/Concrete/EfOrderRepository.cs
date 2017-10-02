@@ -10,10 +10,24 @@ namespace Domain.Concrete
     {
         readonly ShopContext _context = new ShopContext();
         public IEnumerable<OrderDetails> OrderDetailses => _context.OrderDetails;
-        public void SaveOrder(OrderDetails orderDetails)
+        public void SaveOrder(OrderDetails orderDetails, Basket basket)
         {
-            if (orderDetails.OrderId == 0)
+            if (orderDetails.OrderId == 0 || basket.Lines.Count() != 0)
             {
+                List<ProductInOrder> productInOrders = new List<ProductInOrder>();
+                foreach (var i in basket.Lines)
+                {
+                    if (i != null)
+                    {
+                        productInOrders.Add(new ProductInOrder
+                        {
+                            ProductInOrderName = i.Name,
+                            ProductInOrderPhoto = i.Photo,
+                            ProductInOrderPrice = i.Price,
+                            ProductInOrderSize = i.SelectedSize
+                        });
+                    }
+                }
                 _context.OrderDetails.Add(new OrderDetails
                 {
                     Address = orderDetails.Address,
@@ -24,7 +38,8 @@ namespace Domain.Concrete
                     Phone = orderDetails.Phone,
                     Сomment = orderDetails.Сomment,
                     Status = orderDetails.Status,
-                    Order = orderDetails.Order
+                    DateOrder = DateTime.Now,
+                    ProductInOrders = productInOrders
                 });
                 _context.SaveChanges();
             }
@@ -46,15 +61,16 @@ namespace Domain.Concrete
             var oneOrder = _context.OrderDetails.FirstOrDefault(x => x.OrderId == orderId);
             if (oneOrder != null)
             {
-                OrderDetails order = _context.OrderDetails.Find(oneOrder.OrderId);
-                if (order != null)
+                var remuveProduct = _context.ProductInOrders.Where(x => x.OrderDetails.OrderId == orderId);
+                foreach (var i in remuveProduct)
                 {
-                    _context.OrderDetails.Remove(oneOrder);
-                    _context.SaveChanges();
+                    _context.ProductInOrders.Remove(i);
                 }
-                else
-                    throw new Exception();
+                _context.OrderDetails.Remove(oneOrder);
+                _context.SaveChanges();
             }
+            else
+                throw new Exception();
         }
 
         public void OrderComplite(int orderId)
@@ -81,7 +97,7 @@ namespace Domain.Concrete
                 OrderDetails order = _context.OrderDetails.Find(oneOrder.OrderId);
                 if (order != null)
                 {
-                    order.Status = "новий"; 
+                    order.Status = "новий";
                     _context.SaveChanges();
                 }
                 else

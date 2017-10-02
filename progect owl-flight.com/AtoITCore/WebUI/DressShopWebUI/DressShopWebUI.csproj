@@ -127,6 +127,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="img\body1.jpg" />
     <Content Include="img\help.jpg" />
+    <Content Include="img\knopka.gif" />
     <Content Include="img\logo.png" />
     <Content Include="img\Maps-Location-icon.png" />
     <Content Include="img\office-phone-icon--25.png" />
@@ -215,6 +216,7 @@
     <Content Include="Views\Admin\EditSlider.cshtml" />
     <Content Include="Views\Admin\SlidePhoto.cshtml" />
     <Content Include="Views\Admin\Orders.cshtml" />
+    <Content Include="Views\Admin\OrderGif.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

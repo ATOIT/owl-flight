@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entityes
 {
-  public  class ProductInOrder
+  public class ProductInOrder
     {
 
         [Key]
@@ -25,7 +20,7 @@ namespace Domain.Entityes
         [Required]
         public double ProductInOrderPrice { get; set; }
 
-        [Display(Name = "Оберіть розмір")]
+        [Display(Name = "Розмір")]
         public string ProductInOrderSize { get; set; }
 
         public virtual OrderDetails OrderDetails { get; set; }

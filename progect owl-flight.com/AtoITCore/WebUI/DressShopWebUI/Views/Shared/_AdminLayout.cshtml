@@ -8,7 +8,6 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
@@ -29,8 +28,8 @@
                     <li>@Html.ActionLink("Слайдер", "SliderResult", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Замовлення", "OrdeResult", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Повернутись на сайт", "Selling", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    @*@Html.Action("Status", "Admin")*@
                 </ul>
+                @Html.Action("OrderGif", "Admin")
             </div>
         </div>
     </div>

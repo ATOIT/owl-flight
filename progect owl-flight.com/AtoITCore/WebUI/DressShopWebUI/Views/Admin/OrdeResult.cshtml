@@ -6,13 +6,19 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
-<label for="orderSelect">Фільтр замовлень</label>
-<select id="orderSelect">
-    <option></option>
-    <option value="@((int) SortType.None)">Всі замовлення</option>
-    <option value="@((int) SortType.Before)">Обрати нові замовлення</option>
-    <option value="@((int) SortType.Later)">Обрати виконані замовлення </option>
+<label for="dateSelect" style="background-color: bisque">Фільтр по даті</label>
+<select id="dateSelect">
+    <option value="@((int)SortType.None)"></option>
+    <option value="@((int)SortType.Before)">від останніх до перших</option>
+    <option value="@((int)SortType.Later)">від перших до останніх </option>
 </select>
+<label for="statusSelect" style="background-color: bisque">Фільтр по статусу</label>
+<select id="statusSelect">
+    <option value="0">Всі замовлення</option>
+    <option value="1">Обрати нові замовлення</option>
+    <option value="2">Обрати виконані замовлення</option>
+</select>
+
 <br /><br />
 
     <div id="OrdersInAdmin">
@@ -21,22 +27,42 @@
 
 <script>
     $(document)
-        .ready(function() {
-            $("#orderSelect")
-                .change(function() {
+       .ready(function () {
+           $("#dateSelect")
+               .change(function () {
+                   var data = {
+                       sortType: $("#dateSelect option:selected").val(),
+                       sortStatus: $("#statusSelect option:selected").val()
+                   };
+                   $.ajax({
+                       url: "/Admin/OrdeResult",
+                       type: "POST",
+                       data: data,
+                       success: function (data) {
+                           $("#OrdersInAdmin").html(data);
+                       }
+                   });
+               });
+       });
+    $(document)
+        .ready(function () {
+            $("#statusSelect")
+                .change(function () {
                     var data = {
-                        sortType: $("#orderSelect option:selected").val()
+                        sortType: $("#dateSelect option:selected").val(),
+                        sortStatus: $("#statusSelect option:selected").val()
                     };
                     $.ajax({
                         url: "/Admin/OrdeResult",
                         type: "POST",
                         data: data,
-                        success: function(data) {
+                        success: function (data) {
                             $("#OrdersInAdmin").html(data);
                         }
                     });
                 });
         });
+   
 </script>
 
 

@@ -11,9 +11,7 @@ using Domain.Entityes;
 
 namespace DressShopWebUI.Controllers
 {
-    /// <summary>
-    /// Контроллер для админ - панели
-    /// </summary>
+  
     [Authorize]
     public class AdminController : Controller
     {
@@ -435,26 +433,33 @@ namespace DressShopWebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult OrdeResult(SortType sortType)
+        public ActionResult OrdeResult(SortType sortType, int? sortStatus)
         {
-            var sortOrders = _orderRepository.OrderDetailses;
-            switch (sortType)
+            IEnumerable<OrderDetails> sortOrders;
+            switch (sortStatus)
             {
-                case SortType.None:
-                    return PartialView("Orders", sortOrders.OrderByDescending(x => x.DateOrder));
-                case SortType.Before:
-                    sortOrders = from i in sortOrders
-                        where i.Status == "новий"
-                        select i;
+                case 0:
+                    if (sortType == SortType.Before || sortType == SortType.None)
+                        sortOrders = _orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder);
+                    else
+                        sortOrders = _orderRepository.OrderDetailses.OrderBy(x => x.DateOrder);
                     return PartialView("Orders", sortOrders);
-                case SortType.Later:
-                    sortOrders = from i in sortOrders
-                        where i.Status == "виконаний"
-                        select i;
+                case 1:
+                    if (sortType == SortType.Before || sortType == SortType.None)
+                        sortOrders = _orderRepository.OrderDetailses.Where(x => x.Status == "новий").OrderByDescending(x => x.DateOrder);
+                    else
+                        sortOrders = _orderRepository.OrderDetailses.Where(x => x.Status == "новий").OrderBy(x => x.DateOrder);
                     return PartialView("Orders", sortOrders);
-            }
-            return PartialView("Orders", sortOrders.OrderByDescending(x => x.DateOrder));
+                case 2:
+                    if (sortType == SortType.Before || sortType == SortType.None)
+                        sortOrders = _orderRepository.OrderDetailses.Where(x => x.Status == "виконаний").OrderByDescending(x => x.DateOrder);
+                    else
+                        sortOrders = _orderRepository.OrderDetailses.Where(x => x.Status == "виконаний").OrderBy(x => x.DateOrder);
+                    return PartialView("Orders", sortOrders);
+                    }
+            return PartialView("Orders", _orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder));
         }
+      
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -502,6 +507,16 @@ namespace DressShopWebUI.Controllers
             return PartialView("Orders", _orderRepository.OrderDetailses.OrderByDescending(x => x.DateOrder));
         }
         //--------------------------------------------------------------------------------------------------------------
+
+        public ActionResult OrderGif()
+        {
+            var order = _orderRepository.OrderDetailses.FirstOrDefault(x => x.Status == "новий");
+            if (order != null)
+            {
+                return PartialView("OrderGif");
+            }
+            return null;
+        }
         #endregion
     }
 

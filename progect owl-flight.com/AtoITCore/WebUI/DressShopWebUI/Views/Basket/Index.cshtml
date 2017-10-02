@@ -32,16 +32,14 @@
 
 @foreach (var line in Model.Basket.Lines)
 {
-
-    //получаем фото продукта
-    <img title="@line.Product.Name" src="~/PhotoForDB/@line.Product.Photo" height="80" width="75" />
-    <p>Футболка - "@line.Product.Name"</p>
-    <p>Розмір - "@line.Size"</p>
+    
+    <img title="@line.Name" src="~/PhotoForDB/@line.Photo" height="80" width="75" />
+    <p>Футболка - "@line.Name"</p>
+    <p>Розмір - "@line.SelectedSize"</p>
     <p>
-        <strong>Ціна -</strong> @line.Product.Price.ToString("# грн")
+        <strong>Ціна -</strong> @line.Price.ToString("# грн")
     </p>
-
-    //кнопка удаления продукта из корзины
+    
     using (Html.BeginForm("RemoveFromBasket", "Basket"))
     {
         @Html.HiddenFor(x => x.ReturnUrl)
@@ -52,14 +50,12 @@
 <br />
 <br />
 <br />
-@*суммарная стоимость покупки*@
 @if (Model.Basket.CountItem != 0)
 {
     <h3>Разом: @Model.Basket.ComputeTotalValue().ToString("# грн")</h3>
 }
 <br />
 <br />
-@*форма для оформления заказа*@
 @using (Html.BeginForm())
 {
     @Html.EditorFor(x => x.Orders.ClientName, new { htmlAttributes = new { style = "margin: 0px; width: 500px; height: 20px;", placeholder = "Ваше ім'я" } })
@@ -101,13 +97,11 @@
     <br />
     <br />
     <br />
-    //кнопка продолжить покупки
     <div>
         <a href="@Model.ReturnUrl">
             <input id="Button1" type="button" value="Продовжити покупки" style="float: right" />
         </a>
     </div>
-    //кнопка оформить заказ
     <input class="btn" type="submit" value="Оформити замовлення" />
 }
 

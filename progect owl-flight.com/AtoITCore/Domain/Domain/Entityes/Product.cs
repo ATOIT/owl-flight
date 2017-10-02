@@ -78,7 +78,7 @@ namespace Domain.Entityes
         [Required]
         public bool Xl4 { get; set; }
 
-        [Display(Name = "Оберіть розмір")]
+        [Display(Name = "Розмір")]
         [Required(ErrorMessage = "Будь ласка, оберіть розмір футболки")]
         [StringLength(10, MinimumLength = 1, ErrorMessage = "Будь ласка, оберіть розмір футболки")]
         public string SelectedSize { get; set; }

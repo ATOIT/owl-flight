@@ -102,7 +102,7 @@ namespace Domain.Concrete
             str.AppendLine("");
             foreach (var i in basket.Lines)
             {
-                str.AppendFormat($" Футболка  -  \"{i.Product.Name}\"  вартістью - {i.Product.Price} грн. Розмір - {i.Size}");
+                str.AppendFormat($" Футболка  -  \"{i.Name}\"  вартістью - {i.Price} грн. Розмір - {i.SelectedSize}");
                 str.AppendLine("");
             }
             str.AppendLine("");
@@ -146,7 +146,7 @@ namespace Domain.Concrete
             str.AppendLine("");
             foreach (var i in basket.Lines)
             {
-                str.AppendFormat($"Футболка  -  \"{i.Product.Name}\"  вартістью - {i.Product.Price} грн. Розмір - {i.Size}");
+                str.AppendFormat($"Футболка  -  \"{i.Name}\"  вартістью - {i.Price} грн. Розмір - {i.SelectedSize}");
                 str.AppendLine("");
             }
             str.AppendLine("");
@@ -177,6 +177,5 @@ namespace Domain.Concrete
             str.AppendFormat("Дата заказу -  {0:U}", DateTime.Now);
             return str.ToString();
         }
-
-    }
+        }
 }

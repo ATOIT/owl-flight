@@ -15,11 +15,11 @@ namespace Domain.Entityes
         /// <summary>
         /// коллекция товаров в корзине
         /// </summary>
-        private readonly List<BasketLine> _myCollection = new List<BasketLine>();
+        private readonly List<Product> _myCollection = new List<Product>();
 
         //ответ пользователю
         public List<string> AnswerList { get; set; }
-        public IEnumerable<BasketLine> Lines => _myCollection;
+        public IEnumerable<Product> Lines => _myCollection;
 
         /// <summary>
         /// количество товаров в корзине
@@ -30,13 +30,9 @@ namespace Domain.Entityes
         /// <summary>
         /// добавление товара в корзину
         /// </summary>
-        public void AddProduct(Product product, string size)
+        public void AddProduct(Product product)
         {
-                _myCollection.Add(new BasketLine
-                {
-                    Product = product,
-                    Size = size
-                });
+                _myCollection.Add(product);
         }
 
         /// <summary>
@@ -44,7 +40,7 @@ namespace Domain.Entityes
         /// </summary>
         public void RemoveProduct( int line)
         {
-            BasketLine remove = new BasketLine();
+            Product remove = new Product();
             foreach (var i in _myCollection)
             {
                 if (i.GetHashCode() == line)
@@ -63,7 +59,7 @@ namespace Domain.Entityes
             double totalVelue = 0;
             foreach (var i in _myCollection)
             {
-                    totalVelue += i.Product.Price;
+                    totalVelue += i.Price;
             }
             return totalVelue;
         }

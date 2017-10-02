@@ -11,40 +11,18 @@
 }
 @if (!Model.Count().Equals(0))
 {
-
     <table class="table" style="background-color: lightgrey">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Order)
+               Замовленні товари
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOrder)
+                Дані покупця
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClientName)
+               Статус замовлення
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Delivery)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Payment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Сomment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
+           <th>
                 Дії над замовленням
             </th>
         </tr>
@@ -54,41 +32,43 @@
 
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Order)
-
-                </td>
+                   @foreach (var i in item.ProductInOrders)
+                   {
+                       if (i != null)
+                       {
+                        <h4 align="center">"@i.ProductInOrderName"</h4>
+                                <div align="center">
+                                    <img src="~/PhotoForDB/@i.ProductInOrderPhoto" height="80" width="70" />
+                                </div>
+                           <p align="center">
+                               ватість - <strong>@(i.ProductInOrderPrice) грн</strong>
+                           </p>
+                        <p align="center">
+                            обраний розмір - <strong>@i.ProductInOrderSize</strong>
+                        </p>
+                       }
+                   }
+                    </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DateOrder)
-
-                </td>
+                    <p><strong>Дата замовлення</strong> - @Html.DisplayFor(modelItem => item.DateOrder)</p>
+                    <p><strong>Им'я </strong> - @Html.DisplayFor(modelItem => item.ClientName)</p>
+                    <p><strong>E-mail </strong> - @Html.DisplayFor(modelItem => item.Email)</p>
+                    <p><strong>Телефон </strong> - @Html.DisplayFor(modelItem => item.Phone)</p>
+                    <p><strong>Обрана доставка</strong> - @Html.DisplayFor(modelItem => item.Delivery)</p>
+                    <p><strong>Спосіб оплати</strong> - @Html.DisplayFor(modelItem => item.Payment)</p>
+                    <p><strong>Адреса</strong> - @Html.DisplayFor(modelItem => item.Address)</p>
+                    <p><strong>Коментарій клієнта</strong> -@Html.DisplayFor(modelItem => item.Сomment)</p>
+                    </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ClientName)
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Delivery)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Payment)
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Сomment)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
+                  @if (item.Status == "новий")
+                    {
+                    <h4 style="color: red">@item.Status</h4>
+                  }
+                @if (item.Status == "виконаний")
+                    {
                     <h4 style="color: green">@item.Status</h4>
-                </td>
+                }
+                    </td>
                 <td>
                     <input id="@(item.OrderId + "Ok")" type="button" value="Виконано" class="btn btn-default" />
                     <input id="@(item.OrderId + "New")" type="button" value="&nbsp;&nbsp;Новий&nbsp;&nbsp;&nbsp;" class="btn btn-default" />

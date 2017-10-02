@@ -437,51 +437,49 @@ namespace DressShopWebUI.Models
 
             #endregion
 
-            #region Заказы
+            //#region Заказы
 
-            db.OrderDetails.Add(new OrderDetails
-            {
-                Status = "новий",
-                Address = "На деревню бабушке",
-                ClientName = "Вася Пупкин",
-                Delivery = "Нова пошта",
-                Email = "pupkin@gmail.com",
-                Payment = "На карточку",
-                Phone = "099 99 99 999",
-                Сomment = "Хочуууу такую футболкууу!!!",
-                Order = "indianblue.png , ВОЖДЬ ИРОКЕЗОВ, XXL"
-            });
-            Thread.Sleep(10);
+            //db.OrderDetails.Add(new OrderDetails
+            //{
+            //    Status = "новий",
+            //    Address = "На деревню бабушке",
+            //    ClientName = "Вася Пупкин",
+            //    Delivery = "Нова пошта",
+            //    Email = "pupkin@gmail.com",
+            //    Payment = "На карточку",
+            //    Phone = "099 99 99 999",
+            //    Сomment = "Хочуууу такую футболкууу!!!"
+                
+            //});
+            //Thread.Sleep(10);
 
-            db.OrderDetails.Add(new OrderDetails
-            {
-                Status = "виконаний",
-                Address = "На деревню бабушке",
-                ClientName = "Петручо",
-                Delivery = "Нова пошта",
-                Email = "pupkin@gmail.com",
-                Payment = "На карточку",
-                Phone = "099 99 99 999",
-                Сomment = "Хочуууу такую футболкууу!!!",
-                Order = "indianblue.png , ВОЖДЬ ИРОКЕЗОВ, XXL"
-            });
-            Thread.Sleep(10);
+            //db.OrderDetails.Add(new OrderDetails
+            //{
+            //    Status = "виконаний",
+            //    Address = "На деревню бабушке",
+            //    ClientName = "Петручо",
+            //    Delivery = "Нова пошта",
+            //    Email = "pupkin@gmail.com",
+            //    Payment = "На карточку",
+            //    Phone = "099 99 99 999",
+            //    Сomment = "Хочуууу такую футболкууу!!!"
+            //});
+            //Thread.Sleep(10);
 
-            db.OrderDetails.Add(new OrderDetails
-            {
-                Status = "новий",
-                Address = "На деревню бабушке",
-                ClientName = "Алибаба",
-                Delivery = "Нова пошта",
-                Email = "pupkin@gmail.com",
-                Payment = "На карточку",
-                Phone = "099 99 99 999",
-                Сomment = "Хочуууу такую футболкууу!!!",
-                Order = "indianblue.png , ВОЖДЬ ИРОКЕЗОВ, XXL"
-            });
-            Thread.Sleep(10);
+            //db.OrderDetails.Add(new OrderDetails
+            //{
+            //    Status = "новий",
+            //    Address = "На деревню бабушке",
+            //    ClientName = "Алибаба",
+            //    Delivery = "Нова пошта",
+            //    Email = "pupkin@gmail.com",
+            //    Payment = "На карточку",
+            //    Phone = "099 99 99 999",
+            //    Сomment = "Хочуууу такую футболкууу!!!"
+            //});
+            //Thread.Sleep(10);
 
-            #endregion
+            //#endregion
 
             db.SaveChanges();
         }
