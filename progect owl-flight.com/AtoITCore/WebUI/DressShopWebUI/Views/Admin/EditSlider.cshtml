@@ -9,7 +9,7 @@
     @Html.Hidden("SlidePhoto", "new")
     <div class="form-horizontal">
         <h4 align="center" style="color: red">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</h4>
-        <table class="table">
+        <table  class="table table-bordered">
             <tr>
                 <td>
                     <h4 align="center">Основні параметри</h4>
@@ -39,7 +39,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.SlideDescription, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.SlideDescription, new { htmlAttributes = new { @class = "form-control", style = "height: 60px; margin-left: 20px; margin-right: 20px;", placeholder = "Опис слайду" } })
+                            @Html.EditorFor(model => model.SlideDescription, new { htmlAttributes = new { @class = "form-control", style = "height: 200px; margin-left: 20px; margin-right: 20px;", placeholder = "Опис слайду" } })
                             @Html.ValidationMessageFor(model => model.SlideDescription, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -92,9 +92,9 @@
         <div class="form-group">
 
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Зберегти зміни" class="btn btn-default" />
+                <input type="submit" value="Зберегти зміни" class="btn btn-default" style="background-color:  aquamarine" />
                 <a href="/Admin/SliderResult" style="float: right">
-                    <input id="Button1" type="button" value="Повернутися назад" class="btn btn-default" />
+                    <input id="Button1" type="button" value="Повернутися назад" class="btn btn-default" style="background-color:  aquamarine"/>
                 </a>
             </div>
         </div>

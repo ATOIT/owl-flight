@@ -25,6 +25,7 @@ namespace Domain.Entityes
         public string Name { get; set; }
 
         [Display(Name = "Опис сладу")]
+        [DataType(DataType.MultilineText)]
         [Required(ErrorMessage = "Опис не може бути пустим")]
         [StringLength(500, MinimumLength = 3, ErrorMessage = "Опис повинен бути від 3 до 500 символів")]
         public string SlideDescription { get; set; }

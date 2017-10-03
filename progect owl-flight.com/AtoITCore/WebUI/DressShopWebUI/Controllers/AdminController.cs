@@ -178,7 +178,7 @@ namespace DressShopWebUI.Controllers
             {
                 TempData["message"] = "Щось не так :( Товар не був видалений!";
             }
-            return RedirectToAction("MyPanel");
+            return PartialView("PartialMyPanel", _productRepository.Products);
         }
 
         ////------------------------------------------------------------------------------------------------------------------------------------
@@ -528,7 +528,4 @@ namespace DressShopWebUI.Controllers
         Before = 1,
         Later = 2
     }
-    //emum для сортировки по категории
-
-
 }

@@ -22,3 +22,30 @@ select,
 textarea {
     max-width: 280px;
 }
+/*-------------------------------Модальное окно в админке----------------------------*/
+.overlayModal {
+    background: #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    opacity: .5;
+    border-radius: 10px;
+}
+
+.visibleModal {
+    border-radius: 10px;
+    background: #fff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -200px;
+    overflow: hidden;
+    z-index: 2000;
+    width: 500px;
+    padding: 0px;
+    margin-left: -250px;
+}
+/*-------------------------------Модальное окно в админке----------------------------*/

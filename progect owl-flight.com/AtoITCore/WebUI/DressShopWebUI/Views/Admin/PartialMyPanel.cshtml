@@ -4,7 +4,7 @@
     <div class="alert alert-success" align="center"><h3>@TempData["message"]</h3></div>
 }
 
-<table class="table" style="background-color: lightgrey">
+<table class="table table-bordered">
     <tr>
         <th class="text-center">
             Фото
@@ -31,16 +31,16 @@
             Стиль
         </th>
         <th class="text-center">
-            S
+            &nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;
         </th>
         <th class="text-center">
-            M
+            &nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;
         </th>
         <th class="text-center">
-            L
+            &nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;
         </th>
         <th class="text-center">
-            XL
+            &nbsp;&nbsp;XL&nbsp;
         </th>
         <th class="text-center">
             XXL
@@ -111,17 +111,50 @@
                     @Html.Hidden("ProductId", i.ProductId)
                     <input type="submit"
                            class="btn btn-default btn-xs"
+                           style="background-color:  aquamarine"
                            value="Редагувати" />
                 }
-            </td>
-            <td class="text-center">
-                @using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+                <br/>
+                <input class="btn btn-default btn-xs" id="@(i.ProductId + "Dell")" onClick="getElementById('@(i.ProductId + "DellModal")').removeAttribute('style');" type="button" value="&nbsp; Видалити &nbsp;" style="background-color: bisque" />
+
+                <div id="@(i.ProductId + "DellModal")" style="display:none;">
+                    <div class="overlayModal"></div>
+                    <div class="visibleModal">
+                        <h4 align="center">Товар - <strong>"@i.Name"</strong></h4>
+                        <br />
+                        <h4 align="center" style="color: red">Ви точно хочете видалити цей товар?</h4>
+                        <input id="@(i.ProductId + "DellYes")" onClick="getElementById('@(i.ProductId + "DellModal")').style.display = 'none';" type="button" value="&nbsp;&nbsp;&nbsp; Так &nbsp;&nbsp;&nbsp;&nbsp;" class="btn btn-default" style="margin: 50px; float: left; background-color: aquamarine" />
+                        <input id="@(i.ProductId + "DellNo")" onClick="getElementById('@(i.ProductId + "DellModal")').style.display = 'none';" type="button" value="&nbsp;&nbsp;&nbsp; Ні &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" class="btn btn-default" style="margin: 50px; float: right; background-color: aquamarine" />
+                        <br />
+                    </div>
+                </div>
+                <script>
+                        $(document)
+                               .ready(function () {
+                                   $("#@(i.ProductId + "DellYes")")
+                                       .click(function () {
+                                           var data = {
+                                               productId: ('@i.ProductId')
+                                           };
+                                           $.ajax({
+                                               url: "/Admin/DeleteProduct",
+                                               type: "POST",
+                                               data: data,
+                                               success: function (data) {
+                                                   $("#divProductInAdmin").html(data);
+                                               }
+                                           });
+                                       });
+                               });
+                </script>
+                @*@using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
                 {
                     @Html.Hidden("ProductId", i.ProductId)
                     <input type="submit"
                            class="btn btn-default btn-xs"
-                           value="Видалити" />
-                }
+                           style="background-color: bisque"
+                           value="&nbsp; Видалити &nbsp;" />
+                }*@
             </td>
         </tr>
     }

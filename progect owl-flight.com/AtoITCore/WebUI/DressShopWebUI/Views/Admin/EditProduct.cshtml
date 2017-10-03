@@ -12,7 +12,7 @@
     @Html.Hidden("Photo", "new")
     <div class="form-horizontal">
         <h4 align="center" style="color: red">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</h4>
-        <table class="table">
+        <table class="table table-bordered">
             <tr>
                 <td>
                     <h4 align="center">Основні параметри</h4>
@@ -83,36 +83,36 @@
                     </div>
                 </td>
                 <td>
-                    <strong style="">S</strong>@Html.EditorFor(model => model.S)
+                    @Html.EditorFor(model => model.S) <strong style="">S</strong>
                     @Html.ValidationMessageFor(model => model.S, "", new {@class = "text-danger"})
 
                     <br/>
-                    <strong style="">M</strong> @Html.EditorFor(model => model.M)
+                     @Html.EditorFor(model => model.M) <strong style="">M</strong>
                     @Html.ValidationMessageFor(model => model.M, "", new {@class = "text-danger"})
 
 
                     <br/>
-                    <strong style="">L</strong> @Html.EditorFor(model => model.L)
+                     @Html.EditorFor(model => model.L) <strong style="">L</strong>
                     @Html.ValidationMessageFor(model => model.L, "", new {@class = "text-danger"})
 
 
                     <br/>
-                    <strong style="">XL</strong> @Html.EditorFor(model => model.Xl)
+                    @Html.EditorFor(model => model.Xl) <strong style="">XL</strong>
                     @Html.ValidationMessageFor(model => model.Xl, "", new {@class = "text-danger"})
 
 
 
                     <br/>
-                    <strong style="">XXL</strong> @Html.EditorFor(model => model.Xxl)
+                     @Html.EditorFor(model => model.Xxl) <strong style="">XXL</strong>
                     @Html.ValidationMessageFor(model => model.Xxl, "", new {@class = "text-danger"})
 
                     <br/>
-                    <strong style="">3XL</strong> @Html.EditorFor(model => model.Xl3)
+                    @Html.EditorFor(model => model.Xl3) <strong style="">3XL</strong>
                     @Html.ValidationMessageFor(model => model.Xl3, "", new {@class = "text-danger"})
 
 
                     <br/>
-                    <strong style="">4XL</strong> @Html.EditorFor(model => model.Xl4)
+                     @Html.EditorFor(model => model.Xl4) <strong style="">4XL</strong>
                     @Html.ValidationMessageFor(model => model.Xl4, "", new {@class = "text-danger"})
 
                 </td>
@@ -164,13 +164,18 @@
         </table>
 
         <div class="form-group">
-
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Зберегти зміни" class="btn btn-default"/>
+                <input type="submit" value="Зберегти зміни" class="btn btn-default" style="background-color: aquamarine"/>
                 <a href="/Admin/MyPanel" style="float: right">
-                    <input id="Button1" type="button" value="Повернутися назад" class="btn btn-default"/>
+                    <input id="Button1" type="button" value="Повернутися назад" class="btn btn-default" style="background-color: aquamarine"/>
                 </a>
             </div>
         </div>
     </div>
 }
+<br/>
+<br />
+<br />
+<br />
+<br />
+<br />

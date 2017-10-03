@@ -11,15 +11,14 @@
     <br />
     <br />
 }
-
-@if (TempData["message"] != null)
-{
-    <div class="alert alert-success" align="center"><h3>@TempData["message"]</h3></div>
-}
 <br />
 <a href="/Admin/AddSlider" class="btn btn-primary btn-lg">Додати слайд</a>
 <br /><br />
-<table class="table" style="background-color: lightgrey">
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" align="center"><h5>@TempData["message"]</h5></div>
+}
+<table class="table table-bordered">
     <tr>
         <th class="text-center">
             Фото
@@ -61,18 +60,34 @@
                     @Html.Hidden("slideId", i.SlideId)
                     <input type="submit"
                            class="btn btn-default btn-xs"
+                           style="background-color:  aquamarine"
                            value="Редагувати" />
                 }
-            </td>
-            <td class="text-center">
-                @using (Html.BeginForm("DeleteSlide", "Admin", FormMethod.Post))
-                {
-                    @Html.Hidden("slideId", i.SlideId)
-                    <input type="submit"
-                           class="btn btn-default btn-xs"
-                           value="Видалити" />
-                }
+                <br/>
+                <input class="btn btn-default btn-xs" id="@(i.SlideId + "Dell")" onClick="getElementById('@(i.SlideId + "DellModal")').removeAttribute('style');" type="button" value="&nbsp; Видалити &nbsp;" style="background-color: bisque" />
+
+                <div id="@(i.SlideId + "DellModal")" style="display:none;">
+                    <div class="overlayModal"></div>
+                    <div class="visibleModal">
+                        <h4 align="center">Слайд - <strong>"@i.Name"</strong></h4>
+                        <br />
+                        <h4 align="center" style="color: red">Ви точно хочете видалити цей слайд?</h4>
+                        @using (Html.BeginForm("DeleteSlide", "Admin", FormMethod.Post))
+                        {
+                            @Html.Hidden("slideId", i.SlideId)
+                            <input type="submit"
+                                   class="btn btn-default" style="margin: 50px; float: left; background-color: aquamarine"
+                                   value="&nbsp;&nbsp;&nbsp; Так &nbsp;&nbsp;&nbsp;&nbsp;" />
+                        }
+                        <input id="@(i.SlideId + "DellNo")" onClick="getElementById('@(i.SlideId + "DellModal")').style.display = 'none';" type="button" value="&nbsp;&nbsp;&nbsp; Ні &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" class="btn btn-default" style="margin: 50px; float: right; background-color: aquamarine" />
+                        <br />
+                    </div>
+                </div>
+               
             </td>
         </tr>
     }
 </table>
+<br/>
+<br />
+<br />
